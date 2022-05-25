@@ -30,6 +30,37 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JMenuItem menuSalir;
 	private JDesktopPane desktopPane;
 	public static ConsultarMaleta formConsultar;
+	
+	// Datos mínimos de la primera maleta
+	public static String modelo0 = "Aviator";
+	public static double precio0 = 124.9;
+	public static double ancho0 = 63.5;
+	public static double alto0 = 30.9;
+	public static double fondo0 = 29.2;
+	// Datos mínimos del segundo maleta
+	public static String modelo1 = "Century";
+	public static double precio1 = 174.9;
+	public static double ancho1 = 75.0;
+	public static double alto1 = 28.5;
+	public static double fondo1 = 30.0;
+	// Datos mínimos del tercer maleta
+	public static String modelo2 = "Benneton";
+	public static double precio2 = 159.9;
+	public static double ancho2 = 65.2;
+	public static double alto2 = 31.2;
+	public static double fondo2 = 29.4;
+	// Datos mínimos del cuarto maleta
+	public static String modelo3 = "Lucas";
+	public static double precio3 = 99.9;
+	public static double ancho3 = 45.0;
+	public static double alto3 = 70.0;
+	public static double fondo3 = 25.0;
+	// Datos mínimos del quinto maleta
+	public static String modelo4 = "Samsonite";
+	public static double precio4 = 84.9;
+	public static double ancho4 = 50.2;
+	public static double alto4 = 60.4;
+	public static double fondo4 = 25.0;
 	/**
 	 * Launch the application.
 	 */
@@ -52,7 +83,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public MenuPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 506, 381);
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
