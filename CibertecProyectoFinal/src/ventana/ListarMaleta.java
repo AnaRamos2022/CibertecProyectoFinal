@@ -66,35 +66,35 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnListar3(ActionEvent e) {
 		txtS.setText("LISTADO DE MALETAS"+"\n");
-		txtS.append("Modelo      :" + MenuPrincipal.modelo0 + "\n");
-		txtS.append("Precio      :" + "S/. " + MenuPrincipal.precio0 + "\n");
-		txtS.append("Profundidad :" + MenuPrincipal.fondo0 + " cm" + "\n");
-		txtS.append("Ancho       :" + MenuPrincipal.ancho0 + " cm" + "\n");
-		txtS.append("Alto        :" + MenuPrincipal.alto0 + " cm" + "\n" + "\n");
+		txtS.append("Modelo	:" + MenuPrincipal.modelo0 + "\n");
+		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio0 + "\n");
+		txtS.append("Profundidad	:" + MenuPrincipal.fondo0 + " cm" + "\n");
+		txtS.append("Ancho	:" + MenuPrincipal.ancho0 + " cm" + "\n");
+		txtS.append("Alto	:" + MenuPrincipal.alto0 + " cm" + "\n" + "\n");
 		
-		txtS.append("Modelo      :" + MenuPrincipal.modelo1 + "\n");
-		txtS.append("Precio      :" + "S/. " + MenuPrincipal.precio1 + "\n");
-		txtS.append("Profundidad :" + MenuPrincipal.fondo1 + " cm" + "\n");
-		txtS.append("Ancho       :" + MenuPrincipal.ancho1 + " cm" + "\n");
-		txtS.append("Alto        :" + MenuPrincipal.alto1 + " cm" + "\n" + "\n");
+		txtS.append("Modelo	:" + MenuPrincipal.modelo1 + "\n");
+		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio1 + "\n");
+		txtS.append("Profundidad	:" + MenuPrincipal.fondo1 + " cm" + "\n");
+		txtS.append("Ancho	:" + MenuPrincipal.ancho1 + " cm" + "\n");
+		txtS.append("Alto	:" + MenuPrincipal.alto1 + " cm" + "\n" + "\n");
 		
-		txtS.append("Modelo      :" + MenuPrincipal.modelo2 + "\n");
-		txtS.append("Precio      :" + "S/. " + MenuPrincipal.precio2 + "\n");
-		txtS.append("Profundidad :" + MenuPrincipal.fondo2 + " cm" + "\n");
-		txtS.append("Ancho       :" + MenuPrincipal.ancho2 + " cm" + "\n");
-		txtS.append("Alto        :" + MenuPrincipal.alto2 + " cm" + "\n" + "\n");
+		txtS.append("Modelo	:" + MenuPrincipal.modelo2 + "\n");
+		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio2 + "\n");
+		txtS.append("Profundidad	:" + MenuPrincipal.fondo2 + " cm" + "\n");
+		txtS.append("Ancho	:" + MenuPrincipal.ancho2 + " cm" + "\n");
+		txtS.append("Alto	:" + MenuPrincipal.alto2 + " cm" + "\n" + "\n");
 		
-		txtS.append("Modelo      :" + MenuPrincipal.modelo3 + "\n");
-		txtS.append("Precio      :" + "S/. " + MenuPrincipal.precio3 + "\n");
-		txtS.append("Profundidad :" + MenuPrincipal.fondo3 + " cm" + "\n");
-		txtS.append("Ancho       :" + MenuPrincipal.ancho3 + " cm" + "\n");
-		txtS.append("Alto        :" + MenuPrincipal.alto3 + " cm" + "\n" + "\n");
+		txtS.append("Modelo	:" + MenuPrincipal.modelo3 + "\n");
+		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio3 + "\n");
+		txtS.append("Profundidad	:" + MenuPrincipal.fondo3 + " cm" + "\n");
+		txtS.append("Ancho	:" + MenuPrincipal.ancho3 + " cm" + "\n");
+		txtS.append("Alto	:" + MenuPrincipal.alto3 + " cm" + "\n" + "\n");
 		
-		txtS.append("Modelo      :" + MenuPrincipal.modelo4 + "\n");
-		txtS.append("Precio      :" + "S/. " + MenuPrincipal.precio4 + "\n");
-		txtS.append("Profundidad :" + MenuPrincipal.fondo4 + " cm" + "\n");
-		txtS.append("Ancho       :" + MenuPrincipal.ancho4 + " cm" + "\n");
-		txtS.append("Alto        :" + MenuPrincipal.alto4 + " cm" + "\n" + "\n");
+		txtS.append("Modelo	:" + MenuPrincipal.modelo4 + "\n");
+		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio4 + "\n");
+		txtS.append("Profundidad	:" + MenuPrincipal.fondo4 + " cm" + "\n");
+		txtS.append("Ancho	:" + MenuPrincipal.ancho4 + " cm" + "\n");
+		txtS.append("Alto	:" + MenuPrincipal.alto4 + " cm" + "\n" + "\n");
 		
 	}
 }
