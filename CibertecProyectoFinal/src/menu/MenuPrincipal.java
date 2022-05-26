@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import ventana.ConsultarMaleta;
+import ventana.ListarMaleta;
 import ventana.ModificarMaleta;
 
 import javax.swing.JMenuBar;
@@ -33,6 +34,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JDesktopPane desktopPane;
 	public static ConsultarMaleta formConsultar;
 	public static ModificarMaleta formModificar;
+	public static ListarMaleta formListar;
 
 	// Datos mínimos de la primera maleta
 	public static String modelo0 = "Aviator";
@@ -87,7 +89,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public MenuPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 506, 381);
+		setBounds(100, 100, 506, 428);
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -165,5 +167,10 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	protected void actionPerformedMenuListarMaleta(ActionEvent e) {
+		if (formListar == null || formListar.isClosed()) {
+			formListar = new ListarMaleta();
+			desktopPane.add(formListar);
+			formListar.show();
+		}
 	}
 }
