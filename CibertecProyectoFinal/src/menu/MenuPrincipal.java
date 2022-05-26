@@ -269,5 +269,13 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			desktopPane.add(formConfigurarCuotaDiaria);
 			formConfigurarCuotaDiaria.show();
 		}
+		
+		//También se puede usar el siguiente método para mostrar el un solo formulario a la vez:
+		/*protected void actionPerformedmntmAcercaDeLaTienda(ActionEvent e) {
+			if (frmConfigurarCuotaDiaria == null || !frmConfigurarCuotaDiaria .isShowing()) {
+			frmConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();
+			frmConfigurarCuotaDiaria .setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			frmConfigurarCuotaDiaria .setVisible(true);
+			} */
 	}
 }
