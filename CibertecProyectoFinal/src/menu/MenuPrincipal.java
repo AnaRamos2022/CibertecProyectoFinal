@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ventana.ConfigurarCantidadOptima;
+import ventana.ConfigurarCuotaDiaria;
+import ventana.ConfigurarDescuentos;
+import ventana.ConfigurarObsequios;
 import ventana.ConsultarMaleta;
 import ventana.ListarMaleta;
 import ventana.ModificarMaleta;
@@ -19,6 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JDesktopPane;
+import javax.swing.SwingConstants;
 
 public class MenuPrincipal extends JFrame implements ActionListener {
 
@@ -27,14 +32,24 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JMenuBar menuBar;
 	private JMenu menuArchivo;
 	private JMenu menuMantenimiento;
+	private JMenu menuVentas;
+	private JMenu menuConfiguracion;
 	private JMenuItem menuConsultar;
 	private JMenuItem menuModificarMaleta;
 	private JMenuItem menuListarMaleta;
 	private JMenuItem menuSalir;
+	private JMenuItem menuConfigurarDescuentos;
+	private JMenuItem menuConfigurarObsequios;
+	private JMenuItem menuConfigurarCantidadOptima;
+	private JMenuItem menuConfigurarCuotaDiaria;
 	private JDesktopPane desktopPane;
 	public static ConsultarMaleta formConsultar;
 	public static ModificarMaleta formModificar;
 	public static ListarMaleta formListar;
+	public static ConfigurarDescuentos formConfigurarDescuentos;
+	public static ConfigurarObsequios formConfigurarObsequios;
+	public static ConfigurarCantidadOptima formConfigurarCantidadOptima;
+	public static ConfigurarCuotaDiaria formConfigurarCuotaDiaria;
 
 	// Datos m√≠nimos de la primera maleta
 	public static String modelo0 = "Aviator";
@@ -66,6 +81,25 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static double ancho4 = 50.2;
 	public static double alto4 = 60.4;
 	public static double fondo4 = 25.0;
+	// Porcentajes de descuento
+	public static double porcentaje1 = 7.5;
+	public static double porcentaje2 = 10.0;
+	public static double porcentaje3 = 12.5;
+	public static double porcentaje4 = 15.0;
+	// Obsequios
+	public static String tipoObsequio = "Lapicero";
+	public static int obsequioCantidad1 = 2;
+	public static int obsequioCantidad2 = 3;
+	public static int obsequioCantidad3 = 4;
+	public static String obsequio1 = "USB";
+	public static String obsequio2 = "Cuaderno";
+	public static String obsequio3 = "Lapicero";
+	// Cuota diaria
+	public static double cuotadiaria = 30000;
+	// Cantidad Ûptima
+	public static int cantidadoptima = 10;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -115,6 +149,29 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuListarMaleta = new JMenuItem("Listar Maletas");
 		menuListarMaleta.addActionListener(this);
 		menuMantenimiento.add(menuListarMaleta);
+		
+		menuVentas = new JMenu("Ventas");
+		menuVentas.setHorizontalAlignment(SwingConstants.TRAILING);
+		menuBar.add(menuVentas);
+		
+		menuConfiguracion = new JMenu("Configuraci\u00F3n");
+		menuBar.add(menuConfiguracion);
+		
+		menuConfigurarDescuentos = new JMenuItem("Configurar descuentos");
+		menuConfigurarDescuentos.addActionListener(this);
+		menuConfiguracion.add(menuConfigurarDescuentos);
+		
+		menuConfigurarObsequios = new JMenuItem("Configurar obsequios");
+		menuConfigurarObsequios.addActionListener(this);
+		menuConfiguracion.add(menuConfigurarObsequios);
+		
+		menuConfigurarCantidadOptima = new JMenuItem("Configurar cantidad \u00F3ptima");
+		menuConfigurarCantidadOptima.addActionListener(this);
+		menuConfiguracion.add(menuConfigurarCantidadOptima);
+		
+		menuConfigurarCuotaDiaria = new JMenuItem("Configurar cuota diaria");
+		menuConfigurarCuotaDiaria.addActionListener(this);
+		menuConfiguracion.add(menuConfigurarCuotaDiaria);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -131,6 +188,18 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == menuConfigurarCuotaDiaria) {
+			actionPerformedMenuConfigurarCuotaDiaria(e);
+		}
+		if (e.getSource() == menuConfigurarCantidadOptima) {
+			actionPerformedMenuConfigurarCantidadOptima(e);
+		}
+		if (e.getSource() == menuConfigurarObsequios) {
+			actionPerformedMenuConfigurarObsequios(e);
+		}
+		if (e.getSource() == menuConfigurarDescuentos) {
+			actionPerformedMenuConfigurarDescuentos(e);
+		}
 		if (e.getSource() == menuListarMaleta) {
 			actionPerformedMenuListarMaleta(e);
 		}
@@ -171,6 +240,34 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			formListar = new ListarMaleta();
 			desktopPane.add(formListar);
 			formListar.show();
+		}
+	}
+	protected void actionPerformedMenuConfigurarDescuentos(ActionEvent e) {
+		if (formConfigurarDescuentos == null || formConfigurarDescuentos.isClosed()) {
+			formConfigurarDescuentos = new ConfigurarDescuentos();
+			desktopPane.add(formConfigurarDescuentos);
+			formConfigurarDescuentos.show();
+		}
+	}
+	protected void actionPerformedMenuConfigurarObsequios(ActionEvent e) {
+		if (formConfigurarObsequios == null || formConfigurarObsequios.isClosed()) {
+			formConfigurarObsequios = new ConfigurarObsequios();
+			desktopPane.add(formConfigurarObsequios);
+			formConfigurarObsequios.show();
+		}
+	}
+	protected void actionPerformedMenuConfigurarCantidadOptima(ActionEvent e) {
+		if (formConfigurarCantidadOptima == null || formConfigurarCantidadOptima .isClosed()) {
+			formConfigurarCantidadOptima  = new ConfigurarCantidadOptima();
+			desktopPane.add(formConfigurarCantidadOptima);
+			formConfigurarCantidadOptima .show();
+		}
+	}
+	protected void actionPerformedMenuConfigurarCuotaDiaria(ActionEvent e) {
+		if (formConfigurarCuotaDiaria == null || formConfigurarCuotaDiaria .isClosed()) {
+			formConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();
+			desktopPane.add(formConfigurarCuotaDiaria);
+			formConfigurarCuotaDiaria.show();
 		}
 	}
 }
