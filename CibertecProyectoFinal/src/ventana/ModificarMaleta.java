@@ -28,10 +28,6 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private int index;
-	private JLabel lbl_5;
-	private JLabel lbl_6;
-	private JLabel lbl_7;
-	private JLabel lbl_8;
 
 	/**
 	 * Launch the application.
@@ -118,22 +114,6 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		btnNewButton_1.addActionListener(this);
 		btnNewButton_1.setBounds(261, 96, 89, 23);
 		getContentPane().add(btnNewButton_1);
-		
-		lbl_5 = new JLabel("");
-		lbl_5.setBounds(360, 75, 53, 14);
-		getContentPane().add(lbl_5);
-		
-		lbl_6 = new JLabel("");
-		lbl_6.setBounds(360, 100, 46, 14);
-		getContentPane().add(lbl_6);
-		
-		lbl_7 = new JLabel("");
-		lbl_7.setBounds(360, 125, 46, 14);
-		getContentPane().add(lbl_7);
-		
-		lbl_8 = new JLabel("");
-		lbl_8.setBounds(360, 155, 46, 14);
-		getContentPane().add(lbl_8);
 		
 		}
 
