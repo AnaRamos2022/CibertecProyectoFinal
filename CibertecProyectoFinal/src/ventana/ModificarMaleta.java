@@ -105,6 +105,7 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		txtFondo2.setColumns(10);
 		
 		btnNewButton = new JButton("Cerrar");
+		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(261, 46, 89, 23);
 		getContentPane().add(btnNewButton);
 		
@@ -137,6 +138,9 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton) {
+			actionPerformedBtnNewButton(e);
+		}
 		if (e.getSource() == cboTipoMaleta1) {
 			actionPerformedCboTipoMaleta1(e);
 		}
@@ -185,10 +189,7 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 			MenuPrincipal.ancho0=Double.parseDouble(txtAncho2.getText());
 			MenuPrincipal.alto0=Double.parseDouble(txtAlto2.getText());
 			MenuPrincipal.fondo0=Double.parseDouble(txtFondo2.getText());
-			lbl_5.setText(Double.toString(MenuPrincipal.precio0));
-			lbl_6.setText(Double.toString(MenuPrincipal.ancho0));
-			lbl_7.setText(Double.toString(MenuPrincipal.alto0));
-			lbl_8.setText(Double.toString(MenuPrincipal.fondo0));
+		
 		}
 		if (index==1) {
 			MenuPrincipal.precio1=Double.parseDouble(txtPrecio2.getText());
@@ -215,5 +216,8 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 			MenuPrincipal.fondo4=Double.parseDouble(txtFondo2.getText());
 		}
 		
+	}
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		dispose();
 	}
 }

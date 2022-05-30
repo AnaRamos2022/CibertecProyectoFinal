@@ -102,6 +102,7 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 		txtFondo1.setColumns(10);
 		
 		btnNewButton = new JButton("Cerrar");
+		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(262, 46, 89, 23);
 		getContentPane().add(btnNewButton);
 		
@@ -112,6 +113,9 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton) {
+			actionPerformedBtnNewButton(e);
+		}
 		if (e.getSource() == cboTipoMaleta1) {
 			actionPerformedCboTipoMaleta1(e);
 		}
@@ -148,5 +152,8 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 				txtAlto1.setText(MenuPrincipal.alto4+"");
 				txtFondo1.setText(MenuPrincipal.fondo4+"");
 			}
+	}
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		dispose();
 	}
 }
