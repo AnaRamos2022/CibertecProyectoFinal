@@ -124,8 +124,8 @@ public class ConfigurarDescuentos extends JInternalFrame implements ActionListen
 				//textPorcentaje3.setText(Double.toString(VariablesGlobales.porcentaje3));
 				//textPorcentaje4.setText(Double.toString(VariablesGlobales.porcentaje4));
 				
-				//Para que los valores de los porcentajes salgan por default con método void con parámetros
-				porcentajesDefault(MenuPrincipal.porcentaje1, MenuPrincipal.porcentaje2, MenuPrincipal.porcentaje3, MenuPrincipal.porcentaje4);
+		//Para que los valores de los porcentajes salgan por default con método void con parámetros
+		porcentajesDefault(MenuPrincipal.porcentaje1, MenuPrincipal.porcentaje2, MenuPrincipal.porcentaje3, MenuPrincipal.porcentaje4);
 	}
 	
 	void porcentajesDefault (double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4) {

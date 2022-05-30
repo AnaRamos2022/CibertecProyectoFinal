@@ -42,7 +42,7 @@ public class ConfigurarCantidadOptima extends JInternalFrame implements ActionLi
 		getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("Cantidad \u00F3ptima de unidades vendidas");
-		lblNewLabel.setBounds(26, 43, 209, 13);
+		lblNewLabel.setBounds(26, 43, 231, 13);
 		getContentPane().add(lblNewLabel);
 		
 		textCantidadOptima = new JTextField();
