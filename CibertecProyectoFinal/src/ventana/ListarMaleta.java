@@ -50,6 +50,7 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 		scrollPane.setViewportView(txtS);
 		
 		btnCerrar3 = new JButton("Cerrar");
+		btnCerrar3.addActionListener(this);
 		btnCerrar3.setBounds(129, 251, 89, 23);
 		getContentPane().add(btnCerrar3);
 		
@@ -60,12 +61,16 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar3) {
+			actionPerformedBtnCerrar3(e);
+		}
 		if (e.getSource() == btnListar3) {
 			actionPerformedBtnListar3(e);
 		}
 	}
 	protected void actionPerformedBtnListar3(ActionEvent e) {
 		txtS.setText("LISTADO DE MALETAS"+"\n");
+		txtS.append(""+ "\n");
 		txtS.append("Modelo	:" + MenuPrincipal.modelo0 + "\n");
 		txtS.append("Precio	:" + "S/. " + MenuPrincipal.precio0 + "\n");
 		txtS.append("Profundidad	:" + MenuPrincipal.fondo0 + " cm" + "\n");
@@ -95,6 +100,30 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 		txtS.append("Profundidad	:" + MenuPrincipal.fondo4 + " cm" + "\n");
 		txtS.append("Ancho	:" + MenuPrincipal.ancho4 + " cm" + "\n");
 		txtS.append("Alto	:" + MenuPrincipal.alto4 + " cm" + "\n" + "\n");
-		
+	}
+	//También puede realizarse con mediante método void con parámetros:
+	//void listar(String modelo, double precio, double fondo, double ancho, double alto){
+	//txtS.append("Modelo	:" + modelo + "\n");
+	//txtS.append("Precio	:" + precio + "\n");
+	//txtS.append("Profundidad	:" + fondo + " cm"+ "\n");
+	//txtS.append("Ancho	:" + ancho+ " cm" + "\n");
+	//txtS.append("Alto	:" + alto + " cm" + "\n");
+	//}
+	
+	//Para la impresión de datos:
+	//txtS.setText("LISTADO DE MALETAS"+"\n");
+	//txtS.append("" +"\n");
+	//listar(MenuPrincipal.modelo0, MenuPrincipal.precio0, MenuPrincipal.fondo0, MenuPrincipal.ancho0, MenuPrincipal.alto0);
+	//txtS.append("" +"\n");
+	//listar(MenuPrincipal.modelo1, MenuPrincipal.precio1, MenuPrincipal.fondo1, MenuPrincipal.ancho1, MenuPrincipal.alto1);
+	//txtS.append("" +"\n");
+	//listar(MenuPrincipal.modelo2, MenuPrincipal.precio2, MenuPrincipal.fondo2, MenuPrincipal.ancho2, MenuPrincipal.alto2);
+	//txtS.append("" +"\n");
+	//listar(MenuPrincipal.modelo3, MenuPrincipal.precio3, MenuPrincipal.fondo3, MenuPrincipal.ancho3, MenuPrincipal.alto3);
+	//txtS.append("" +"\n");
+	//listar(MenuPrincipal.modelo4, MenuPrincipal.precio4, MenuPrincipal.fondo4, MenuPrincipal.ancho4, MenuPrincipal.alto4);
+	
+	protected void actionPerformedBtnCerrar3(ActionEvent e) {
+		dispose();
 	}
 }

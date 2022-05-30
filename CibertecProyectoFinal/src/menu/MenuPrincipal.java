@@ -1,12 +1,21 @@
 package menu;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import ventana.AcercadeTienda;
 import ventana.ConfigurarCantidadOptima;
 import ventana.ConfigurarCuotaDiaria;
 import ventana.ConfigurarDescuentos;
@@ -14,16 +23,6 @@ import ventana.ConfigurarObsequios;
 import ventana.ConsultarMaleta;
 import ventana.ListarMaleta;
 import ventana.ModificarMaleta;
-
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JDesktopPane;
-import javax.swing.SwingConstants;
 
 public class MenuPrincipal extends JFrame implements ActionListener {
 
@@ -34,6 +33,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JMenu menuMantenimiento;
 	private JMenu menuVentas;
 	private JMenu menuConfiguracion;
+	private JMenu menuAyuda;
 	private JMenuItem menuConsultar;
 	private JMenuItem menuModificarMaleta;
 	private JMenuItem menuListarMaleta;
@@ -42,6 +42,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JMenuItem menuConfigurarObsequios;
 	private JMenuItem menuConfigurarCantidadOptima;
 	private JMenuItem menuConfigurarCuotaDiaria;
+	private JMenuItem menuAcercadeTienda;
 	private JDesktopPane desktopPane;
 	public static ConsultarMaleta formConsultar;
 	public static ModificarMaleta formModificar;
@@ -50,7 +51,8 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static ConfigurarObsequios formConfigurarObsequios;
 	public static ConfigurarCantidadOptima formConfigurarCantidadOptima;
 	public static ConfigurarCuotaDiaria formConfigurarCuotaDiaria;
-
+	public static AcercadeTienda formAcercadeTienda;
+	
 	// Datos mÃ­nimos de la primera maleta
 	public static String modelo0 = "Aviator";
 	public static double precio0 = 124.9;
@@ -99,6 +101,8 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	// Cantidad óptima
 	public static int cantidadoptima = 10;
 	
+
+	
 	
 
 	/**
@@ -138,15 +142,15 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuMantenimiento = new JMenu("Mantenimiento");
 		menuBar.add(menuMantenimiento);
 
-		menuConsultar = new JMenuItem("Consultar Maletas");
+		menuConsultar = new JMenuItem("Consultar maleta");
 		menuConsultar.addActionListener(this);
 		menuMantenimiento.add(menuConsultar);
 
-		menuModificarMaleta = new JMenuItem("Modificar Maletas");
+		menuModificarMaleta = new JMenuItem("Modificar maleta");
 		menuModificarMaleta.addActionListener(this);
 		menuMantenimiento.add(menuModificarMaleta);
 
-		menuListarMaleta = new JMenuItem("Listar Maletas");
+		menuListarMaleta = new JMenuItem("Listar maleta");
 		menuListarMaleta.addActionListener(this);
 		menuMantenimiento.add(menuListarMaleta);
 		
@@ -172,6 +176,13 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuConfigurarCuotaDiaria = new JMenuItem("Configurar cuota diaria");
 		menuConfigurarCuotaDiaria.addActionListener(this);
 		menuConfiguracion.add(menuConfigurarCuotaDiaria);
+		
+		menuAyuda = new JMenu("Ayuda");
+		menuBar.add(menuAyuda);
+		
+		menuAcercadeTienda = new JMenuItem("Acerca de Tienda");
+		menuAcercadeTienda.addActionListener(this);
+		menuAyuda.add(menuAcercadeTienda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -188,6 +199,9 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == menuAcercadeTienda) {
+			actionPerformedMenuAcercadeTienda(e);
+		}
 		if (e.getSource() == menuConfigurarCuotaDiaria) {
 			actionPerformedMenuConfigurarCuotaDiaria(e);
 		}
@@ -257,25 +271,34 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedMenuConfigurarCantidadOptima(ActionEvent e) {
-		if (formConfigurarCantidadOptima == null || formConfigurarCantidadOptima .isClosed()) {
+		if (formConfigurarCantidadOptima == null || formConfigurarCantidadOptima.isClosed()) {
 			formConfigurarCantidadOptima  = new ConfigurarCantidadOptima();
 			desktopPane.add(formConfigurarCantidadOptima);
 			formConfigurarCantidadOptima .show();
 		}
 	}
 	protected void actionPerformedMenuConfigurarCuotaDiaria(ActionEvent e) {
-		if (formConfigurarCuotaDiaria == null || formConfigurarCuotaDiaria .isClosed()) {
+		if (formConfigurarCuotaDiaria == null || formConfigurarCuotaDiaria.isClosed()) {
 			formConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();
 			desktopPane.add(formConfigurarCuotaDiaria);
 			formConfigurarCuotaDiaria.show();
 		}
-		
-		//También se puede usar el siguiente método para mostrar el un solo formulario a la vez:
-		/*protected void actionPerformedmntmAcercaDeLaTienda(ActionEvent e) {
-			if (frmConfigurarCuotaDiaria == null || !frmConfigurarCuotaDiaria .isShowing()) {
+	}
+	
+	protected void actionPerformedMenuAcercadeTienda(ActionEvent e) {
+		if (formAcercadeTienda == null || formAcercadeTienda.isClosed()) {
+			formAcercadeTienda   = new AcercadeTienda();
+			desktopPane.add(formAcercadeTienda );
+			formAcercadeTienda .show();
+		}
+	}
+	
+	//También se puede usar el siguiente método para mostrar el un solo formulario a la vez:
+	/*protected void actionPerformedmntmAcercaDeLaTienda(ActionEvent e) {
+		if (frmConfigurarCuotaDiaria == null || !frmConfigurarCuotaDiaria .isShowing()) {
 			frmConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();
 			frmConfigurarCuotaDiaria .setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			frmConfigurarCuotaDiaria .setVisible(true);
 			} */
-	}
+	
 }
