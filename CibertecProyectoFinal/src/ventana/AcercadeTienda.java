@@ -26,6 +26,7 @@ public class AcercadeTienda extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public AcercadeTienda() {
+		setClosable(true);
 		setBounds(100, 100, 450, 300);
 
 	}

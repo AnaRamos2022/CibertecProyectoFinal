@@ -44,6 +44,7 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 	 * Create the frame.
 	 */
 	public ConfigurarObsequios() {
+		setClosable(true);
 		setTitle("Configurar obsequios");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);

@@ -49,6 +49,7 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ModificarMaleta() {
+		setClosable(true);
 		setTitle("Modificar Maleta");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);

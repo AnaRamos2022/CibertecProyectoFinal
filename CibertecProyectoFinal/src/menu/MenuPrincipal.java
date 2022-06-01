@@ -293,7 +293,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		}
 	}
 	
-	//También se puede usar el siguiente método para mostrar el un solo formulario a la vez:
+	//También se puede usar el siguiente método para mostrar un solo formulario a la vez:
 	/*protected void actionPerformedmntmAcercaDeLaTienda(ActionEvent e) {
 		if (frmConfigurarCuotaDiaria == null || !frmConfigurarCuotaDiaria .isShowing()) {
 			frmConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();

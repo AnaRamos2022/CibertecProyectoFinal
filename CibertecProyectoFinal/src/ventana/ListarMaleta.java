@@ -38,6 +38,7 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ListarMaleta() {
+		setClosable(true);
 		setTitle("Listado de maletas");
 		setBounds(10, 10, 450, 345);
 		getContentPane().setLayout(null);

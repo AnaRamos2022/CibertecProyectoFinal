@@ -48,6 +48,7 @@ public class ConfigurarDescuentos extends JInternalFrame implements ActionListen
 	 * Create the frame.
 	 */
 	public ConfigurarDescuentos() {
+		setClosable(true);
 		setTitle("Configurar porcentajes de descuento");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);

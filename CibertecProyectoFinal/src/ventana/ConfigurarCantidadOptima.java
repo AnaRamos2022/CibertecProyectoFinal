@@ -38,6 +38,7 @@ public class ConfigurarCantidadOptima extends JInternalFrame implements ActionLi
 	 * Create the frame.
 	 */
 	public ConfigurarCantidadOptima() {
+		setClosable(true);
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		

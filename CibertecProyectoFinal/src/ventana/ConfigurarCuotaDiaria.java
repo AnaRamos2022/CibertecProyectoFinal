@@ -38,6 +38,7 @@ public class ConfigurarCuotaDiaria extends JInternalFrame implements ActionListe
 	 * Create the frame.
 	 */
 	public ConfigurarCuotaDiaria() {
+		setClosable(true);
 		setTitle("Configurar cuota diaria");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);

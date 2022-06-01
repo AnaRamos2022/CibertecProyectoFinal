@@ -47,6 +47,7 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ConsultarMaleta() {
+		setClosable(true);
 		setTitle("Consultar Maleta");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
