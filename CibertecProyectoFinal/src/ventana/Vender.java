@@ -12,8 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import menu.MenuPrincipal;
+import javax.swing.DefaultComboBoxModel;
 
-public class Vender extends JInternalFrame {
+public class Vender extends JInternalFrame implements ActionListener {
 	private JDesktopPane desktopPane;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
@@ -25,7 +29,8 @@ public class Vender extends JInternalFrame {
 	private JButton btnCerrar;
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
-
+	
+	private int index;
 	/**
 	 * Launch the application.
 	 */
@@ -47,7 +52,7 @@ public class Vender extends JInternalFrame {
 	 */
 	public Vender() {
 		setTitle("Vender");
-		setBounds(100, 100, 450, 300);
+		setBounds(10, 10, 450, 300);
 		
 		desktopPane = new JDesktopPane();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
@@ -77,6 +82,8 @@ public class Vender extends JInternalFrame {
 		desktopPane.add(lblNewLabel_2);
 		
 		cboVender = new JComboBox();
+		cboVender.setModel(new DefaultComboBoxModel(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
+		cboVender.addActionListener(this);
 		cboVender.setBounds(84, 20, 182, 22);
 		desktopPane.add(cboVender);
 		
@@ -92,6 +99,7 @@ public class Vender extends JInternalFrame {
 		txtFieldVender2.setColumns(10);
 		
 		btnVender = new JButton("Vender");
+		btnVender.addActionListener(this);
 		btnVender.setBounds(310, 20, 89, 23);
 		desktopPane.add(btnVender);
 		
@@ -107,5 +115,37 @@ public class Vender extends JInternalFrame {
 		scrollPane.setViewportView(textArea);
 		getContentPane().setLayout(groupLayout);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cboVender) {
+			actionPerformedCboVender(e);
+		}
+		if (e.getSource() == btnVender) {
+			actionPerformedBtnVender(e);
+		}
+	}
+	protected void actionPerformedBtnVender(ActionEvent e) {
+		
+	}
+	protected void actionPerformedCboVender(ActionEvent e) {
+		index=cboVender.getSelectedIndex();
+		switch(index){
+		case 0:
+			txtFieldVender1.setText(MenuPrincipal.precio0+"");
+			break;
+		case 1:
+			txtFieldVender1.setText(MenuPrincipal.precio1+"");
+			break;
+		case 2:
+			txtFieldVender1.setText(MenuPrincipal.precio2+"");
+			break;
+		case 3:
+			txtFieldVender1.setText(MenuPrincipal.precio3+"");
+			break;
+		case 4:
+			txtFieldVender1.setText(MenuPrincipal.precio4+"");
+			break;
+		}
+		
 	}
 }

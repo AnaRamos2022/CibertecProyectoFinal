@@ -21,8 +21,10 @@ import ventana.ConfigurarCuotaDiaria;
 import ventana.ConfigurarDescuentos;
 import ventana.ConfigurarObsequios;
 import ventana.ConsultarMaleta;
+import ventana.GenerarReportes;
 import ventana.ListarMaleta;
 import ventana.ModificarMaleta;
+import ventana.Vender;
 
 public class MenuPrincipal extends JFrame implements ActionListener {
 
@@ -47,6 +49,8 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static ConsultarMaleta formConsultar;
 	public static ModificarMaleta formModificar;
 	public static ListarMaleta formListar;
+	public static Vender formVender;
+	public static GenerarReportes formGenerarReportes;
 	public static ConfigurarDescuentos formConfigurarDescuentos;
 	public static ConfigurarObsequios formConfigurarObsequios;
 	public static ConfigurarCantidadOptima formConfigurarCantidadOptima;
@@ -129,7 +133,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public MenuPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 506, 428);
+		setBounds(100, 100, 702, 492);
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -161,9 +165,11 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuBar.add(menuVentas);
 		
 		MenuVender = new JMenuItem("Vender");
+		MenuVender.addActionListener(this);
 		menuVentas.add(MenuVender);
 		
 		MenuReporteVentas = new JMenuItem("Generar Reportes");
+		MenuReporteVentas.addActionListener(this);
 		menuVentas.add(MenuReporteVentas);
 		
 		menuConfiguracion = new JMenu("Configuraci\u00F3n");
@@ -207,6 +213,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == MenuReporteVentas) {
+			actionPerformedMenuReporteVentas(e);
+		}
+		if (e.getSource() == MenuVender) {
+			actionPerformedMenuVender(e);
+		}
 		if (e.getSource() == menuAcercadeTienda) {
 			actionPerformedMenuAcercadeTienda(e);
 		}
@@ -309,4 +321,18 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 			frmConfigurarCuotaDiaria .setVisible(true);
 			} */
 	
+	protected void actionPerformedMenuVender(ActionEvent e) {
+		if (formVender == null || formVender.isClosed()) {
+			formVender = new Vender();
+			desktopPane.add(formVender);
+			formVender.show();
+		}
+	}
+	protected void actionPerformedMenuReporteVentas(ActionEvent e) {
+		if (formGenerarReportes == null || formGenerarReportes.isClosed()) {
+			formGenerarReportes = new GenerarReportes();
+			desktopPane.add(formGenerarReportes);
+			formGenerarReportes.show();
+		}
+	}
 }

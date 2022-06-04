@@ -42,7 +42,7 @@ public class GenerarReportes extends JInternalFrame {
 	 */
 	public GenerarReportes() {
 		setTitle("Generar reportes");
-		setBounds(100, 100, 649, 321);
+		setBounds(10, 10, 649, 321);
 		
 		desktopPane = new JDesktopPane();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
