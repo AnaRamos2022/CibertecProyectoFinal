@@ -98,8 +98,10 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static String obsequio3 = "Lapicero";
 	// Cuota diaria
 	public static double cuotadiaria = 30000;
-	// Cantidad óptima
+	// Cantidad ï¿½ptima
 	public static int cantidadoptima = 10;
+	private JMenuItem MenuVender;
+	private JMenuItem MenuReporteVentas;
 	
 
 	
@@ -157,6 +159,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuVentas = new JMenu("Ventas");
 		menuVentas.setHorizontalAlignment(SwingConstants.TRAILING);
 		menuBar.add(menuVentas);
+		
+		MenuVender = new JMenuItem("Vender");
+		menuVentas.add(MenuVender);
+		
+		MenuReporteVentas = new JMenuItem("Generar Reportes");
+		menuVentas.add(MenuReporteVentas);
 		
 		menuConfiguracion = new JMenu("Configuraci\u00F3n");
 		menuBar.add(menuConfiguracion);
@@ -293,7 +301,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		}
 	}
 	
-	//También se puede usar el siguiente método para mostrar un solo formulario a la vez:
+	//Tambiï¿½n se puede usar el siguiente mï¿½todo para mostrar un solo formulario a la vez:
 	/*protected void actionPerformedmntmAcercaDeLaTienda(ActionEvent e) {
 		if (frmConfigurarCuotaDiaria == null || !frmConfigurarCuotaDiaria .isShowing()) {
 			frmConfigurarCuotaDiaria  = new ConfigurarCuotaDiaria();
