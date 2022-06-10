@@ -11,12 +11,14 @@ import menu.MenuPrincipal;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ConfigurarCuotaDiaria extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
 	private JTextField textCuotaDiaria;
 	private JButton btnAceptar;
 	private JButton btnNewButton;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -43,26 +45,33 @@ public class ConfigurarCuotaDiaria extends JInternalFrame implements ActionListe
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
+		
 		lblNewLabel = new JLabel("Cuota diaria esperada (S/.)");
 		lblNewLabel.setBounds(30, 38, 159, 13);
-		getContentPane().add(lblNewLabel);
+		desktopPane.add(lblNewLabel);
 		
 		textCuotaDiaria = new JTextField();
 		textCuotaDiaria.setText("30000.0");
 		textCuotaDiaria.setColumns(10);
 		textCuotaDiaria.setBounds(199, 35, 96, 19);
-		getContentPane().add(textCuotaDiaria);
+		desktopPane.add(textCuotaDiaria);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(324, 38, 85, 21);
-		getContentPane().add(btnAceptar);
+		desktopPane.add(btnAceptar);
 		
 		btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(324, 62, 85, 21);
-		getContentPane().add(btnNewButton);
+		desktopPane.add(btnNewButton);
 
+		desktopPane.setBounds(10, 0, 424, 270);
+		getContentPane().add(desktopPane);
+		
 		//Para que la cuota diaria salga por default
 		textCuotaDiaria.setText(Double.toString(MenuPrincipal.cuotadiaria));
 	}

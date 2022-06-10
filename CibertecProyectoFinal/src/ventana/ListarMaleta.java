@@ -11,12 +11,14 @@ import menu.MenuPrincipal;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ListarMaleta extends JInternalFrame implements ActionListener {
 	private JScrollPane scrollPane;
 	private JTextArea txtS;
 	private JButton btnCerrar3;
 	private JButton btnListar3;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -43,23 +45,27 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 		setBounds(10, 10, 450, 345);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 315);
+		getContentPane().add(desktopPane);
+		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 11, 414, 229);
-		getContentPane().add(scrollPane);
+		desktopPane.add(scrollPane);
 		
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 		
 		btnCerrar3 = new JButton("Cerrar");
-		btnCerrar3.addActionListener(this);
 		btnCerrar3.setBounds(129, 251, 89, 23);
-		getContentPane().add(btnCerrar3);
+		btnCerrar3.addActionListener(this);
+		desktopPane.add(btnCerrar3);
 		
 		btnListar3 = new JButton("Listar");
-		btnListar3.addActionListener(this);
 		btnListar3.setBounds(228, 251, 89, 23);
-		getContentPane().add(btnListar3);
-
+		btnListar3.addActionListener(this);
+		desktopPane.add(btnListar3);
+		
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar3) {

@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
@@ -28,6 +29,7 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	private JButton btnCerrar;
 	private JButton btnGrabar;
 	private int index;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -54,68 +56,71 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
+		
 		lblNewLabel = new JLabel("Modelo");
 		lblNewLabel.setBounds(36, 50, 114, 14);
-		getContentPane().add(lblNewLabel);
+		desktopPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("Precio (S/.)");
 		lblNewLabel_1.setBounds(36, 74, 114, 14);
-		getContentPane().add(lblNewLabel_1);
+		desktopPane.add(lblNewLabel_1);
 		
 		cboTipoMaleta1 = new JComboBox<String>();
 		cboTipoMaleta1.addActionListener(this);
 		cboTipoMaleta1.setModel(new DefaultComboBoxModel<String>(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
 		cboTipoMaleta1.setBounds(160, 46, 85, 22);
-		getContentPane().add(cboTipoMaleta1);
+		desktopPane.add(cboTipoMaleta1);
 		
 		
 		lblNewLabel_2 = new JLabel("Ancho (cm)");
 		lblNewLabel_2.setBounds(36, 100, 114, 14);
-		getContentPane().add(lblNewLabel_2);
+		desktopPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("Alto (cm)");
 		lblNewLabel_3.setBounds(36, 125, 114, 14);
-		getContentPane().add(lblNewLabel_3);
+		desktopPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("Fondo (cm)");
 		lblNewLabel_4.setBounds(36, 149, 114, 14);
-		getContentPane().add(lblNewLabel_4);
+		desktopPane.add(lblNewLabel_4);
 		
 		txtPrecio2 = new JTextField();
 		txtPrecio2.setBounds(159, 73, 86, 20);
-		getContentPane().add(txtPrecio2);
+		desktopPane.add(txtPrecio2);
 		txtPrecio2.setColumns(10);
 		
 		txtAncho2 = new JTextField();
 		txtAncho2.setBounds(159, 98, 86, 20);
-		getContentPane().add(txtAncho2);
+		desktopPane.add(txtAncho2);
 		txtAncho2.setColumns(10);
 		
 		txtAlto2 = new JTextField();
 		txtAlto2.setBounds(159, 123, 86, 20);
-		getContentPane().add(txtAlto2);
+		desktopPane.add(txtAlto2);
 		txtAlto2.setColumns(10);
 		
 		txtFondo2 = new JTextField();
 		txtFondo2.setBounds(159, 147, 86, 20);
-		getContentPane().add(txtFondo2);
+		desktopPane.add(txtFondo2);
 		txtFondo2.setColumns(10);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(292, 46, 89, 23);
-		getContentPane().add(btnCerrar);
+		desktopPane.add(btnCerrar);
+		
+		btnGrabar = new JButton("Grabar");
+		btnGrabar.addActionListener(this);
+		btnGrabar.setBounds(292, 96, 89, 23);
+		desktopPane.add(btnGrabar);
 		
 		txtPrecio2.setText(MenuPrincipal.precio0+"");
 		txtAncho2.setText(MenuPrincipal.ancho0+"");
 		txtAlto2.setText(MenuPrincipal.alto0+"");
 		txtFondo2.setText(MenuPrincipal.fondo0+"");
-		
-		btnGrabar = new JButton("Grabar");
-		btnGrabar.addActionListener(this);
-		btnGrabar.setBounds(292, 96, 89, 23);
-		getContentPane().add(btnGrabar);
-		
 		}
 
 	public void actionPerformed(ActionEvent e) {

@@ -11,6 +11,7 @@ import menu.MenuPrincipal;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ConfigurarObsequios extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
@@ -23,6 +24,7 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 	private JTextField textCantObsequio3;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -49,55 +51,59 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
+		
 		lblNewLabel = new JLabel("Tipo de obsequio");
 		lblNewLabel.setBounds(30, 34, 104, 13);
-		getContentPane().add(lblNewLabel);
+		desktopPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("1 a 5 unidades");
 		lblNewLabel_1.setBounds(30, 57, 104, 13);
-		getContentPane().add(lblNewLabel_1);
+		desktopPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("6 a 10 unidades");
 		lblNewLabel_2.setBounds(30, 80, 104, 13);
-		getContentPane().add(lblNewLabel_2);
+		desktopPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("11 a m\u00E1s unidades");
 		lblNewLabel_3.setBounds(30, 103, 104, 13);
-		getContentPane().add(lblNewLabel_3);
+		desktopPane.add(lblNewLabel_3);
 		
 		textObsequio = new JTextField();
 		textObsequio.setText("Lapicero");
 		textObsequio.setColumns(10);
 		textObsequio.setBounds(154, 31, 96, 19);
-		getContentPane().add(textObsequio);
+		desktopPane.add(textObsequio);
 		
 		textCantObsequio1 = new JTextField();
 		textCantObsequio1.setText("2");
 		textCantObsequio1.setColumns(10);
 		textCantObsequio1.setBounds(154, 54, 96, 19);
-		getContentPane().add(textCantObsequio1);
+		desktopPane.add(textCantObsequio1);
 		
 		textCantObsequio2 = new JTextField();
 		textCantObsequio2.setText("3");
 		textCantObsequio2.setColumns(10);
 		textCantObsequio2.setBounds(154, 77, 96, 19);
-		getContentPane().add(textCantObsequio2);
+		desktopPane.add(textCantObsequio2);
 		
 		textCantObsequio3 = new JTextField();
 		textCantObsequio3.setText("4");
 		textCantObsequio3.setColumns(10);
 		textCantObsequio3.setBounds(154, 100, 96, 19);
-		getContentPane().add(textCantObsequio3);
+		desktopPane.add(textCantObsequio3);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(305, 30, 85, 21);
-		getContentPane().add(btnAceptar);
+		desktopPane.add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(305, 57, 85, 21);
-		getContentPane().add(btnCancelar);
+		desktopPane.add(btnCancelar);
 
 		//Llamar al método void con parámetros
 				obsequiosDefault(MenuPrincipal.tipoObsequio, MenuPrincipal.obsequioCantidad1, MenuPrincipal.obsequioCantidad2, MenuPrincipal.obsequioCantidad3);

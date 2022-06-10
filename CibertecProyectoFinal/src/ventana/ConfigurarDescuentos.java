@@ -11,6 +11,7 @@ import menu.MenuPrincipal;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ConfigurarDescuentos extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
@@ -27,6 +28,7 @@ public class ConfigurarDescuentos extends JInternalFrame implements ActionListen
 	private JLabel lblNewLabel_7;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -53,72 +55,76 @@ public class ConfigurarDescuentos extends JInternalFrame implements ActionListen
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
+		
 		lblNewLabel = new JLabel("1 a 5 unidades");
 		lblNewLabel.setBounds(32, 32, 106, 13);
-		getContentPane().add(lblNewLabel);
+		desktopPane.add(lblNewLabel);
 		
 		textPorcentaje1 = new JTextField();
 		textPorcentaje1.setText("7.5");
 		textPorcentaje1.setColumns(10);
 		textPorcentaje1.setBounds(140, 29, 96, 19);
-		getContentPane().add(textPorcentaje1);
+		desktopPane.add(textPorcentaje1);
 		
 		lblNewLabel_1 = new JLabel("%");
 		lblNewLabel_1.setBounds(246, 32, 45, 13);
-		getContentPane().add(lblNewLabel_1);
+		desktopPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("6 a 10 unidades");
 		lblNewLabel_2.setBounds(32, 55, 106, 13);
-		getContentPane().add(lblNewLabel_2);
+		desktopPane.add(lblNewLabel_2);
 		
 		textPorcentaje2 = new JTextField();
 		textPorcentaje2.setText("10.0");
 		textPorcentaje2.setColumns(10);
 		textPorcentaje2.setBounds(140, 55, 96, 19);
-		getContentPane().add(textPorcentaje2);
+		desktopPane.add(textPorcentaje2);
 		
 		lblNewLabel_3 = new JLabel("%");
 		lblNewLabel_3.setBounds(246, 55, 45, 13);
-		getContentPane().add(lblNewLabel_3);
+		desktopPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("11 a 15 unidades");
 		lblNewLabel_4.setBounds(32, 78, 106, 13);
-		getContentPane().add(lblNewLabel_4);
+		desktopPane.add(lblNewLabel_4);
 		
 		textPorcentaje3 = new JTextField();
 		textPorcentaje3.setText("12.5");
 		textPorcentaje3.setColumns(10);
 		textPorcentaje3.setBounds(140, 78, 96, 19);
-		getContentPane().add(textPorcentaje3);
+		desktopPane.add(textPorcentaje3);
 		
 		lblNewLabel_5 = new JLabel("%");
 		lblNewLabel_5.setBounds(246, 81, 45, 13);
-		getContentPane().add(lblNewLabel_5);
+		desktopPane.add(lblNewLabel_5);
 		
 		lblNewLabel_6 = new JLabel("M\u00E1s de 15 unidades");
 		lblNewLabel_6.setBounds(32, 101, 106, 13);
-		getContentPane().add(lblNewLabel_6);
+		desktopPane.add(lblNewLabel_6);
 		
 		textPorcentaje4 = new JTextField();
 		textPorcentaje4.setText("15.0");
 		textPorcentaje4.setColumns(10);
 		textPorcentaje4.setBounds(140, 101, 96, 19);
-		getContentPane().add(textPorcentaje4);
+		desktopPane.add(textPorcentaje4);
 		
 		lblNewLabel_7 = new JLabel("%");
 		lblNewLabel_7.setBounds(246, 107, 45, 13);
-		getContentPane().add(lblNewLabel_7);
+		desktopPane.add(lblNewLabel_7);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(314, 28, 85, 21);
-		getContentPane().add(btnAceptar);
+		desktopPane.add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(314, 51, 85, 21);
-		getContentPane().add(btnCancelar);
-
+		desktopPane.add(btnCancelar);
+		
 		//Para que los valores de los porcentajes salgan por default
 				//textPorcentaje1.setText(Double.toString(VariablesGlobales.porcentaje1));
 				//textPorcentaje2.setText(Double.toString(VariablesGlobales.porcentaje2));

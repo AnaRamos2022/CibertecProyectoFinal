@@ -11,12 +11,14 @@ import menu.MenuPrincipal;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class ConfigurarCantidadOptima extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
 	private JTextField textCantidadOptima;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
+	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -38,29 +40,37 @@ public class ConfigurarCantidadOptima extends JInternalFrame implements ActionLi
 	 * Create the frame.
 	 */
 	public ConfigurarCantidadOptima() {
+		setTitle("Configurar cantidad \u00F3ptima");
 		setClosable(true);
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
+		desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
+		
 		lblNewLabel = new JLabel("Cantidad \u00F3ptima de unidades vendidas");
 		lblNewLabel.setBounds(26, 43, 231, 13);
-		getContentPane().add(lblNewLabel);
+		desktopPane.add(lblNewLabel);
 		
 		textCantidadOptima = new JTextField();
 		textCantidadOptima.setText("10");
 		textCantidadOptima.setColumns(10);
 		textCantidadOptima.setBounds(256, 40, 51, 19);
-		getContentPane().add(textCantidadOptima);
+		desktopPane .add(textCantidadOptima);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(332, 39, 85, 21);
-		getContentPane().add(btnAceptar);
+		desktopPane.add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(332, 64, 85, 21);
-		getContentPane().add(btnCancelar);	
+		desktopPane.add(btnCancelar);	
+		
+		desktopPane.setBounds(0, 0, 434, 270);
+		getContentPane().add(desktopPane);
 		
 		//Para que la cantidad óptima salga por default
 		textCantidadOptima.setText(Integer.toString(MenuPrincipal.cantidadoptima));
