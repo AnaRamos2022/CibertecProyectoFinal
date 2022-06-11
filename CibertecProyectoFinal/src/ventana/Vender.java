@@ -28,9 +28,11 @@ public class Vender extends JInternalFrame implements ActionListener {
 	private JButton btnVender;
 	private JButton btnCerrar;
 	private JScrollPane scrollPane;
-	private JTextArea textArea;
+	private JTextArea txtArea;
 	
-	private int index;
+	private int index,cantidad;
+	private double imp_Compra=0,imp_Pagar,precio,descuento;
+	private String item,tipoObsequio;
 	/**
 	 * Launch the application.
 	 */
@@ -111,8 +113,8 @@ public class Vender extends JInternalFrame implements ActionListener {
 		scrollPane.setBounds(10, 109, 414, 149);
 		desktopPane.add(scrollPane);
 		
-		textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		txtArea = new JTextArea();
+		scrollPane.setViewportView(txtArea);
 		getContentPane().setLayout(groupLayout);
 
 	}
@@ -125,7 +127,10 @@ public class Vender extends JInternalFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnVender(ActionEvent e) {
-		
+		Venta();
+		descuento();
+		pago();
+		imprimir();
 	}
 	protected void actionPerformedCboVender(ActionEvent e) {
 		index=cboVender.getSelectedIndex();
@@ -146,6 +151,62 @@ public class Vender extends JInternalFrame implements ActionListener {
 			txtFieldVender1.setText(MenuPrincipal.precio4+"");
 			break;
 		}
+		
+	}
+	void Venta() {
+		item=(String)cboVender.getSelectedItem();
+		cantidad=Integer.parseInt(txtFieldVender2.getText());
+		if(index==0) {
+			precio=MenuPrincipal.precio0;
+			imp_Compra=cantidad*MenuPrincipal.precio0;
+		}
+		if(index==1) {
+			imp_Compra=cantidad*MenuPrincipal.precio1;
+			precio=MenuPrincipal.precio1;
+		}
+		if(index==2) {
+			imp_Compra=cantidad*MenuPrincipal.precio2;
+			precio=MenuPrincipal.precio2;
+		}
+		if(index==3) {
+			imp_Compra=cantidad*MenuPrincipal.precio3;
+			precio=MenuPrincipal.precio3;
+		}
+		if(index==4) {
+			imp_Compra=cantidad*MenuPrincipal.precio4;
+			precio=MenuPrincipal.precio4;
+		}
+	}
+	void descuento() {
+		if(cantidad>0&&cantidad<=5) {
+			descuento=0.075*imp_Compra;
+			tipoObsequio="obsequioCantidad1";
+		}else if(cantidad>5&&cantidad<=10) {
+			descuento=0.02*imp_Compra;
+			tipoObsequio="obsequioCantidad2";
+		}else if(cantidad>10&&cantidad<=15) {
+			descuento=0.03*imp_Compra;
+			tipoObsequio="obsequioCantidad3";
+		}else {
+			descuento=0.04*imp_Compra;
+			tipoObsequio="obsequioCantidad4";
+			}
+		}
+	void pago(){
+		imp_Pagar=imp_Compra-descuento;
+	}
+	
+	
+	void imprimir(){
+		txtArea.append("BOLETA DE VENTA\n");
+		txtArea.append("Modelo: "+ item+"\n");
+		txtArea.append("Precio"+ precio+"\n");
+		txtArea.append("Cantidad adquirida: "+cantidad+"\n");
+		txtArea.append("Importe compra: "+imp_Compra+"\n");
+		txtArea.append("Importe descuento: "+descuento+"\n");
+		txtArea.append("Importe pagar: "+imp_Pagar+"\n");
+		txtArea.append("Tipo de obsequio: "+tipoObsequio+"\n");
+		txtArea.append("Unidades Obsequiadas: "+cantidad*2);
 		
 	}
 }
