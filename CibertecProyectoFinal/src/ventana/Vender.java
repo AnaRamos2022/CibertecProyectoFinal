@@ -219,7 +219,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		txtArea.append("Unidades Obsequiadas: "+cantidad*2);
 		
 	}
-	void contador() {
+	void contador() {    //chekar si esta bien?
 		int contador=1;
 		contador++;
 		if (contador%5==0) {
