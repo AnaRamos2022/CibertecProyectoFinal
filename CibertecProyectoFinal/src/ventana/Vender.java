@@ -7,6 +7,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -18,11 +19,15 @@ import menu.MenuPrincipal;
 import javax.swing.DefaultComboBoxModel;
 
 public class Vender extends JInternalFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JDesktopPane desktopPane;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-	private JComboBox cboVender;
+	private JComboBox<String> cboVender;
 	private JTextField txtFieldVender1;
 	private JTextField txtFieldVender2;
 	private JButton btnVender;
@@ -83,8 +88,8 @@ public class Vender extends JInternalFrame implements ActionListener {
 		lblNewLabel_2.setBounds(10, 84, 46, 14);
 		desktopPane.add(lblNewLabel_2);
 		
-		cboVender = new JComboBox();
-		cboVender.setModel(new DefaultComboBoxModel(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
+		cboVender = new JComboBox<String>();
+		cboVender.setModel(new DefaultComboBoxModel<String>(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
 		cboVender.addActionListener(this);
 		cboVender.setBounds(84, 20, 182, 22);
 		desktopPane.add(cboVender);
@@ -106,6 +111,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		desktopPane.add(btnVender);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(310, 49, 89, 23);
 		desktopPane.add(btnCerrar);
 		
@@ -119,6 +125,9 @@ public class Vender extends JInternalFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
 		if (e.getSource() == cboVender) {
 			actionPerformedCboVender(e);
 		}
@@ -127,9 +136,11 @@ public class Vender extends JInternalFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnVender(ActionEvent e) {
+		
 		Venta();
 		descuento();
 		pago();
+		contador();
 		imprimir();
 	}
 	protected void actionPerformedCboVender(ActionEvent e) {
@@ -196,7 +207,6 @@ public class Vender extends JInternalFrame implements ActionListener {
 		imp_Pagar=imp_Compra-descuento;
 	}
 	
-	
 	void imprimir(){
 		txtArea.append("BOLETA DE VENTA\n");
 		txtArea.append("Modelo: "+ item+"\n");
@@ -208,5 +218,17 @@ public class Vender extends JInternalFrame implements ActionListener {
 		txtArea.append("Tipo de obsequio: "+tipoObsequio+"\n");
 		txtArea.append("Unidades Obsequiadas: "+cantidad*2);
 		
+	}
+	void contador() {
+		int contador=1;
+		contador++;
+		if (contador%5==0) {
+			JOptionPane.showMessageDialog(null,"El impCompra es "+imp_Compra+"\n"+"descuento es: "+descuento);
+			
+		}
+		
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 }
