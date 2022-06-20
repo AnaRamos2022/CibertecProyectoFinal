@@ -16,8 +16,8 @@ import javax.swing.JDesktopPane;
 public class ListarMaleta extends JInternalFrame implements ActionListener {
 	private JScrollPane scrollPane;
 	private JTextArea txtS;
-	private JButton btnCerrar3;
-	private JButton btnListar3;
+	private JButton btnCerrar;
+	private JButton btnListar;
 	private JDesktopPane desktopPane;
 
 	/**
@@ -56,26 +56,26 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 		
-		btnCerrar3 = new JButton("Cerrar");
-		btnCerrar3.setBounds(129, 251, 89, 23);
-		btnCerrar3.addActionListener(this);
-		desktopPane.add(btnCerrar3);
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(129, 251, 89, 23);
+		btnCerrar.addActionListener(this);
+		desktopPane.add(btnCerrar);
 		
-		btnListar3 = new JButton("Listar");
-		btnListar3.setBounds(228, 251, 89, 23);
-		btnListar3.addActionListener(this);
-		desktopPane.add(btnListar3);
+		btnListar = new JButton("Listar");
+		btnListar.setBounds(228, 251, 89, 23);
+		btnListar.addActionListener(this);
+		desktopPane.add(btnListar);
 		
 	}
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnCerrar3) {
-			actionPerformedBtnCerrar3(e);
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
 		}
-		if (e.getSource() == btnListar3) {
-			actionPerformedBtnListar3(e);
+		if (e.getSource() == btnListar) {
+			actionPerformedBtnListar(e);
 		}
 	}
-	protected void actionPerformedBtnListar3(ActionEvent e) {
+	protected void actionPerformedBtnListar(ActionEvent e) {
 		txtS.setText("LISTADO DE MALETAS"+"\n");
 		txtS.append(""+ "\n");
 		txtS.append("Modelo	:" + MenuPrincipal.modelo0 + "\n");
@@ -130,7 +130,7 @@ public class ListarMaleta extends JInternalFrame implements ActionListener {
 	//txtS.append("" +"\n");
 	//listar(MenuPrincipal.modelo4, MenuPrincipal.precio4, MenuPrincipal.fondo4, MenuPrincipal.ancho4, MenuPrincipal.alto4);
 	
-	protected void actionPerformedBtnCerrar3(ActionEvent e) {
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
 }

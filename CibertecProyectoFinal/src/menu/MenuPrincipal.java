@@ -45,6 +45,8 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private JMenuItem menuConfigurarCantidadOptima;
 	private JMenuItem menuConfigurarCuotaDiaria;
 	private JMenuItem menuAcercadeTienda;
+	private JMenuItem menuVender;
+	private JMenuItem menuReporteVentas;
 	private JDesktopPane desktopPane;
 	public static ConsultarMaleta formConsultar;
 	public static ModificarMaleta formModificar;
@@ -57,31 +59,31 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static ConfigurarCuotaDiaria formConfigurarCuotaDiaria;
 	public static AcercadeTienda formAcercadeTienda;
 	
-	// Datos mínimos de la primera maleta
+	// Datos minimos de la primera maleta
 	public static String modelo0 = "Aviator";
 	public static double precio0 = 124.9;
 	public static double ancho0 = 63.5;
 	public static double alto0 = 30.9;
 	public static double fondo0 = 29.2;
-	// Datos mínimos del segundo maleta
+	// Datos minimos del segundo maleta
 	public static String modelo1 = "Century";
 	public static double precio1 = 174.9;
 	public static double ancho1 = 75.0;
 	public static double alto1 = 28.5;
 	public static double fondo1 = 30.0;
-	// Datos mínimos del tercer maleta
+	// Datos minimos del tercer maleta
 	public static String modelo2 = "Benneton";
-	public static double precio2 = 159.9;
+	public static double precio2 = 84.9;
 	public static double ancho2 = 65.2;
 	public static double alto2 = 31.2;
 	public static double fondo2 = 29.4;
-	// Datos mínimos del cuarto maleta
+	// Datos minimos del cuarto maleta
 	public static String modelo3 = "Lucas";
 	public static double precio3 = 99.9;
 	public static double ancho3 = 45.0;
 	public static double alto3 = 70.0;
 	public static double fondo3 = 25.0;
-	// Datos mínimos del quinto maleta
+	// Datos minimos del quinto maleta
 	public static String modelo4 = "Samsonite";
 	public static double precio4 = 84.9;
 	public static double ancho4 = 50.2;
@@ -100,17 +102,31 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static String obsequio1 = "USB";
 	public static String obsequio2 = "Cuaderno";
 	public static String obsequio3 = "Lapicero";
+	// Numero de ventas por modelo
+	public static int contadorVentas = 0;
+	public static int contadorVentas0 = 0;
+	public static int contadorVentas1 = 0;
+	public static int contadorVentas2 = 0;
+	public static int contadorVentas3 = 0;
+	public static int contadorVentas4 = 0;
+	// Cantidad unidades vendidas por modelo
+	public static int cantidadvendida0 = 0;
+	public static int cantidadvendida1 = 0;
+	public static int cantidadvendida2 = 0;
+	public static int cantidadvendida3 = 0;
+	public static int cantidadvendida4 = 0;
+	// Importe total acumulado de ventas
+	public static double importeAcumulado = 0;
 	// Cuota diaria
 	public static double cuotadiaria = 30000;
-	// Cantidad �ptima
+	// Cantidad optima
 	public static int cantidadoptima = 10;
-	private JMenuItem MenuVender;
-	private JMenuItem MenuReporteVentas;
+	//Cantidad modelos que superaron / no superaron / igualaron cantidad optima
+	public static int cantidadSuperada = 0;
+	public static int cantidadNoSuperada= 0;
+	public static int cantidadIgualada = 0;
 	
-
 	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -164,13 +180,13 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuVentas.setHorizontalAlignment(SwingConstants.TRAILING);
 		menuBar.add(menuVentas);
 		
-		MenuVender = new JMenuItem("Vender");
-		MenuVender.addActionListener(this);
-		menuVentas.add(MenuVender);
+		menuVender = new JMenuItem("Vender");
+		menuVender.addActionListener(this);
+		menuVentas.add(menuVender);
 		
-		MenuReporteVentas = new JMenuItem("Generar Reportes");
-		MenuReporteVentas.addActionListener(this);
-		menuVentas.add(MenuReporteVentas);
+		menuReporteVentas = new JMenuItem("Generar Reportes");
+		menuReporteVentas.addActionListener(this);
+		menuVentas.add(menuReporteVentas);
 		
 		menuConfiguracion = new JMenu("Configuraci\u00F3n");
 		menuBar.add(menuConfiguracion);
@@ -213,10 +229,10 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == MenuReporteVentas) {
+		if (e.getSource() == menuReporteVentas) {
 			actionPerformedMenuReporteVentas(e);
 		}
-		if (e.getSource() == MenuVender) {
+		if (e.getSource() == menuVender) {
 			actionPerformedMenuVender(e);
 		}
 		if (e.getSource() == menuAcercadeTienda) {

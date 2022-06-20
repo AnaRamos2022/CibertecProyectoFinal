@@ -14,11 +14,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 
 public class ConfigurarCuotaDiaria extends JInternalFrame implements ActionListener {
+	private JDesktopPane desktopPane;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
 	private JLabel lblNewLabel;
 	private JTextField textCuotaDiaria;
-	private JButton btnAceptar;
-	private JButton btnNewButton;
-	private JDesktopPane desktopPane;
 
 	/**
 	 * Launch the application.
@@ -49,48 +49,44 @@ public class ConfigurarCuotaDiaria extends JInternalFrame implements ActionListe
 		desktopPane.setBounds(0, 0, 434, 270);
 		getContentPane().add(desktopPane);
 		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
+		btnAceptar.setBounds(339, 42, 85, 21);
+		desktopPane.add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(339, 67, 85, 21);
+		desktopPane.add(btnCancelar);
+		
 		lblNewLabel = new JLabel("Cuota diaria esperada (S/.)");
-		lblNewLabel.setBounds(30, 38, 159, 13);
+		lblNewLabel.setBounds(24, 51, 159, 13);
 		desktopPane.add(lblNewLabel);
 		
 		textCuotaDiaria = new JTextField();
 		textCuotaDiaria.setText("30000.0");
 		textCuotaDiaria.setColumns(10);
-		textCuotaDiaria.setBounds(199, 35, 96, 19);
+		textCuotaDiaria.setBounds(196, 47, 96, 19);
 		desktopPane.add(textCuotaDiaria);
-		
-		btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(this);
-		btnAceptar.setBounds(324, 38, 85, 21);
-		desktopPane.add(btnAceptar);
-		
-		btnNewButton = new JButton("Cancelar");
-		btnNewButton.addActionListener(this);
-		btnNewButton.setBounds(324, 62, 85, 21);
-		desktopPane.add(btnNewButton);
-
-		desktopPane.setBounds(10, 0, 424, 270);
-		getContentPane().add(desktopPane);
 		
 		//Para que la cuota diaria salga por default
 		textCuotaDiaria.setText(Double.toString(MenuPrincipal.cuotadiaria));
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnNewButton) {
-			actionPerformedBtnNewButton(e);
-		}
 		if (e.getSource() == btnAceptar) {
 			actionPerformedBtnAceptar(e);
 		}
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
 	}
-	
-	//Para que se graben el cambio realizado sobre la variable global
-	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		MenuPrincipal.cuotadiaria=Double.parseDouble(textCuotaDiaria.getText());
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
 	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	//Para que se grabe el cambio realizado sobre la variable global
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		MenuPrincipal.cuotadiaria=Double.parseDouble(textCuotaDiaria.getText());
 		dispose();
 	}
 }

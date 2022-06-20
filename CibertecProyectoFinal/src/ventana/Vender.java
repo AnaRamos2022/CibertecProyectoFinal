@@ -27,17 +27,17 @@ public class Vender extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-	private JComboBox<String> cboVender;
-	private JTextField txtFieldVender1;
-	private JTextField txtFieldVender2;
+	private JComboBox<String> cboTipoMaleta;
+	private JTextField textPrecio;
+	private JTextField textCantidad;
 	private JButton btnVender;
 	private JButton btnCerrar;
 	private JScrollPane scrollPane;
-	private JTextArea txtArea;
-	
-	private int index,cantidad;
-	private double imp_Compra=0,imp_Pagar,precio,descuento;
-	private String item,tipoObsequio;
+	private JTextArea textArea;
+	//Creación de variables globales:
+	private int index,cantidad, unidadesObseq;
+	private double impCompra=0,impPago,impDescuento, precio;
+	private String mensaje;
 	/**
 	 * Launch the application.
 	 */
@@ -77,33 +77,33 @@ public class Vender extends JInternalFrame implements ActionListener {
 		);
 		
 		lblNewLabel = new JLabel("Modelo");
-		lblNewLabel.setBounds(10, 24, 46, 14);
+		lblNewLabel.setBounds(10, 24, 74, 14);
 		desktopPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("Precio (S/.)");
-		lblNewLabel_1.setBounds(10, 49, 62, 14);
+		lblNewLabel_1.setBounds(10, 49, 74, 14);
 		desktopPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Cantidad");
-		lblNewLabel_2.setBounds(10, 84, 46, 14);
+		lblNewLabel_2.setBounds(10, 74, 74, 14);
 		desktopPane.add(lblNewLabel_2);
 		
-		cboVender = new JComboBox<String>();
-		cboVender.setModel(new DefaultComboBoxModel<String>(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
-		cboVender.addActionListener(this);
-		cboVender.setBounds(84, 20, 182, 22);
-		desktopPane.add(cboVender);
+		cboTipoMaleta = new JComboBox<String>();
+		cboTipoMaleta.setModel(new DefaultComboBoxModel(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
+		cboTipoMaleta.addActionListener(this);
+		cboTipoMaleta.setBounds(82, 20, 184, 22);
+		desktopPane.add(cboTipoMaleta);
 		
-		txtFieldVender1 = new JTextField();
-		txtFieldVender1.setEditable(false);
-		txtFieldVender1.setBounds(82, 46, 184, 20);
-		desktopPane.add(txtFieldVender1);
-		txtFieldVender1.setColumns(10);
+		textPrecio = new JTextField();
+		textPrecio.setEditable(false);
+		textPrecio.setBounds(82, 46, 184, 20);
+		desktopPane.add(textPrecio);
+		textPrecio.setColumns(10);
 		
-		txtFieldVender2 = new JTextField();
-		txtFieldVender2.setBounds(84, 81, 182, 20);
-		desktopPane.add(txtFieldVender2);
-		txtFieldVender2.setColumns(10);
+		textCantidad = new JTextField();
+		textCantidad.setBounds(82, 71, 184, 20);
+		desktopPane.add(textCantidad);
+		textCantidad.setColumns(10);
 		
 		btnVender = new JButton("Vender");
 		btnVender.addActionListener(this);
@@ -119,8 +119,8 @@ public class Vender extends JInternalFrame implements ActionListener {
 		scrollPane.setBounds(10, 109, 414, 149);
 		desktopPane.add(scrollPane);
 		
-		txtArea = new JTextArea();
-		scrollPane.setViewportView(txtArea);
+		textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
 		getContentPane().setLayout(groupLayout);
 
 	}
@@ -128,106 +128,124 @@ public class Vender extends JInternalFrame implements ActionListener {
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
-		if (e.getSource() == cboVender) {
-			actionPerformedCboVender(e);
+		if (e.getSource() == cboTipoMaleta) {
+			actionPerformedcboTipoMaleta(e);
 		}
 		if (e.getSource() == btnVender) {
 			actionPerformedBtnVender(e);
 		}
 	}
 	protected void actionPerformedBtnVender(ActionEvent e) {
-		
-		Venta();
+		venta();
+		importeCompra();
 		descuento();
-		pago();
-		contador();
-		imprimir();
+		importePago();
+		reporteVentas();
+		contadorVentas();
+		montoAcumuladoVentas();
+		mensajeAlerta ();
+		cantidadVentasPorModelo();
 	}
-	protected void actionPerformedCboVender(ActionEvent e) {
-		index=cboVender.getSelectedIndex();
+	protected void actionPerformedcboTipoMaleta(ActionEvent e) {
+		index=cboTipoMaleta.getSelectedIndex();
 		switch(index){
 		case 0:
-			txtFieldVender1.setText(MenuPrincipal.precio0+"");
+			textPrecio.setText(Double.toString(MenuPrincipal.precio0)+"");
 			break;
 		case 1:
-			txtFieldVender1.setText(MenuPrincipal.precio1+"");
+			textPrecio.setText(Double.toString(MenuPrincipal.precio1)+"");
 			break;
 		case 2:
-			txtFieldVender1.setText(MenuPrincipal.precio2+"");
+			textPrecio.setText(Double.toString(MenuPrincipal.precio2)+"");
 			break;
 		case 3:
-			txtFieldVender1.setText(MenuPrincipal.precio3+"");
+			textPrecio.setText(Double.toString(MenuPrincipal.precio3)+"");
 			break;
 		case 4:
-			txtFieldVender1.setText(MenuPrincipal.precio4+"");
+			textPrecio.setText(Double.toString(MenuPrincipal.precio4)+"");
 			break;
 		}
 		
 	}
-	void Venta() {
-		item=(String)cboVender.getSelectedItem();
-		cantidad=Integer.parseInt(txtFieldVender2.getText());
-		if(index==0) {
-			precio=MenuPrincipal.precio0;
-			imp_Compra=cantidad*MenuPrincipal.precio0;
-		}
-		if(index==1) {
-			imp_Compra=cantidad*MenuPrincipal.precio1;
-			precio=MenuPrincipal.precio1;
-		}
-		if(index==2) {
-			imp_Compra=cantidad*MenuPrincipal.precio2;
-			precio=MenuPrincipal.precio2;
-		}
-		if(index==3) {
-			imp_Compra=cantidad*MenuPrincipal.precio3;
-			precio=MenuPrincipal.precio3;
-		}
-		if(index==4) {
-			imp_Compra=cantidad*MenuPrincipal.precio4;
-			precio=MenuPrincipal.precio4;
-		}
+	void venta() {
+		cantidad=Integer.parseInt(textCantidad.getText());
+		precio=Double.parseDouble(textPrecio.getText());
+		index=cboTipoMaleta.getSelectedIndex();
+	}
+	void importeCompra () {
+		impCompra=cantidad*precio;
+		impDescuento=0;
+		unidadesObseq=0;
 	}
 	void descuento() {
 		if(cantidad>0&&cantidad<=5) {
-			descuento=0.075*imp_Compra;
-			tipoObsequio="obsequioCantidad1";
+			impDescuento=MenuPrincipal.porcentaje1/100*impCompra;
+			unidadesObseq=MenuPrincipal.obsequioCantidad1;
 		}else if(cantidad>5&&cantidad<=10) {
-			descuento=0.02*imp_Compra;
-			tipoObsequio="obsequioCantidad2";
+			impDescuento=MenuPrincipal.porcentaje2/100*impCompra;
+			unidadesObseq=MenuPrincipal.obsequioCantidad2;
 		}else if(cantidad>10&&cantidad<=15) {
-			descuento=0.03*imp_Compra;
-			tipoObsequio="obsequioCantidad3";
+			impDescuento=MenuPrincipal.porcentaje3/100*impCompra;
+			unidadesObseq=MenuPrincipal.obsequioCantidad3;
 		}else {
-			descuento=0.04*imp_Compra;
-			tipoObsequio="obsequioCantidad4";
+			impDescuento=MenuPrincipal.porcentaje4/100*impCompra;
+			unidadesObseq=MenuPrincipal.obsequioCantidad3;
 			}
 		}
-	void pago(){
-		imp_Pagar=imp_Compra-descuento;
+	void importePago(){
+		impPago=impCompra-impDescuento;
 	}
 	
-	void imprimir(){
-		txtArea.append("BOLETA DE VENTA\n");
-		txtArea.append("Modelo: "+ item+"\n");
-		txtArea.append("Precio"+ precio+"\n");
-		txtArea.append("Cantidad adquirida: "+cantidad+"\n");
-		txtArea.append("Importe compra: "+imp_Compra+"\n");
-		txtArea.append("Importe descuento: "+descuento+"\n");
-		txtArea.append("Importe pagar: "+imp_Pagar+"\n");
-		txtArea.append("Tipo de obsequio: "+tipoObsequio+"\n");
-		txtArea.append("Unidades Obsequiadas: "+cantidad*2);
+	void reporteVentas(){
+		textArea.append("BOLETA DE VENTA\n");
+		textArea.append(""+"\n");
+		textArea.append("Modelo		: "+cboTipoMaleta.getSelectedItem()+"\n");
+		textArea.append("Precio		: S/. "+Math.round(precio*100.0)/100.0+"\n");
+		textArea.append("Cantidad adquirida	: "+cantidad+"\n");
+		textArea.append("Importe compra		: S/. "+Math.round(impCompra*100.0)/100.0+"\n");
+		textArea.append("Importe descuento	: S/. "+Math.round(impDescuento*100.0)/100.0+"\n");
+		textArea.append("Importe pagar		: S/. "+Math.round(impPago*100.0)/100.0+"\n");
+		textArea.append("Tipo de obsequio	: "+MenuPrincipal.tipoObsequio+"\n");
+		textArea.append("Unidades obsequiadas	: "+unidadesObseq+"\n");
 		
 	}
-	void contador() {    //chekar si esta bien?
-		int contador=1;
-		contador++;
-		if (contador%5==0) {
-			JOptionPane.showMessageDialog(null,"El impCompra es "+imp_Compra+"\n"+"descuento es: "+descuento);
-			
+	void contadorVentas() {    //Se crea una variable global para contrar las ventas que se van realizando
+		MenuPrincipal.contadorVentas=MenuPrincipal.contadorVentas+1;
+	}
+	void montoAcumuladoVentas() { //Se define una variable global para calcular todos los importes de venta generado
+		MenuPrincipal.importeAcumulado=MenuPrincipal.importeAcumulado+impPago;
+	}
+	void mensajeAlerta () {
+		mensaje="Venta Nro."+MenuPrincipal.contadorVentas+"\n Importe total general acumulado: S/. "+Math.round(MenuPrincipal.importeAcumulado*100.0)/100.0+"\n Porcentaje de la cuota diaria : "+Math.round((MenuPrincipal.importeAcumulado/MenuPrincipal.cuotadiaria*100)*100.0)/100.0+"%";
+		if (MenuPrincipal.contadorVentas%5==0) {
+			JOptionPane.showMessageDialog(desktopPane,mensaje,"Avance de ventas",JOptionPane.INFORMATION_MESSAGE);
 		}
-		
 	}
+	void cantidadVentasPorModelo() {
+		switch (index) {
+		case (0):
+			MenuPrincipal.contadorVentas0=MenuPrincipal.contadorVentas0+1;
+			MenuPrincipal.cantidadvendida0=MenuPrincipal.cantidadvendida0+cantidad;
+		break;
+		case (1):
+			MenuPrincipal.contadorVentas1=MenuPrincipal.contadorVentas1+1;
+		MenuPrincipal.cantidadvendida1=MenuPrincipal.cantidadvendida1+cantidad;
+		break;
+		case (2):
+			MenuPrincipal.contadorVentas2=MenuPrincipal.contadorVentas2+1;
+		MenuPrincipal.cantidadvendida2=MenuPrincipal.cantidadvendida2+cantidad;
+		break;
+		case (3):
+			MenuPrincipal.contadorVentas3=MenuPrincipal.contadorVentas3+1;
+		MenuPrincipal.cantidadvendida3=MenuPrincipal.cantidadvendida3+cantidad;
+		break;
+		case (4):
+			MenuPrincipal.contadorVentas4=MenuPrincipal.contadorVentas4+1;
+		MenuPrincipal.cantidadvendida4=MenuPrincipal.cantidadvendida4+cantidad;
+		break;
+		}
+	}
+	
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}

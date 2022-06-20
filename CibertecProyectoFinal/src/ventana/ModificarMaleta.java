@@ -18,14 +18,14 @@ import javax.swing.JDesktopPane;
 public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
-	private JComboBox<String> cboTipoMaleta1;
+	private JComboBox<String> cboTipoMaleta;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private JTextField txtPrecio2;
-	private JTextField txtAncho2;
-	private JTextField txtAlto2;
-	private JTextField txtFondo2;
+	private JTextField textPrecio2;
+	private JTextField textAncho2;
+	private JTextField textAlto2;
+	private JTextField textFondo2;
 	private JButton btnCerrar;
 	private JButton btnGrabar;
 	private int index;
@@ -52,7 +52,7 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	 */
 	public ModificarMaleta() {
 		setClosable(true);
-		setTitle("Modificar Maleta");
+		setTitle("Modificar maleta");
 		setBounds(10, 10, 450, 300);
 		getContentPane().setLayout(null);
 		
@@ -68,11 +68,11 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		lblNewLabel_1.setBounds(36, 74, 114, 14);
 		desktopPane.add(lblNewLabel_1);
 		
-		cboTipoMaleta1 = new JComboBox<String>();
-		cboTipoMaleta1.addActionListener(this);
-		cboTipoMaleta1.setModel(new DefaultComboBoxModel<String>(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
-		cboTipoMaleta1.setBounds(160, 46, 85, 22);
-		desktopPane.add(cboTipoMaleta1);
+		cboTipoMaleta = new JComboBox<String>();
+		cboTipoMaleta.addActionListener(this);
+		cboTipoMaleta.setModel(new DefaultComboBoxModel<String>(new String[] {"Aviator", "Century", "Benneton", "Lucas", "Samsonite"}));
+		cboTipoMaleta.setBounds(159, 46, 85, 22);
+		desktopPane.add(cboTipoMaleta);
 		
 		
 		lblNewLabel_2 = new JLabel("Ancho (cm)");
@@ -84,28 +84,28 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		desktopPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("Fondo (cm)");
-		lblNewLabel_4.setBounds(36, 149, 114, 14);
+		lblNewLabel_4.setBounds(36, 150, 114, 14);
 		desktopPane.add(lblNewLabel_4);
 		
-		txtPrecio2 = new JTextField();
-		txtPrecio2.setBounds(159, 73, 86, 20);
-		desktopPane.add(txtPrecio2);
-		txtPrecio2.setColumns(10);
+		textPrecio2 = new JTextField();
+		textPrecio2.setBounds(159, 73, 86, 20);
+		desktopPane.add(textPrecio2);
+		textPrecio2.setColumns(10);
 		
-		txtAncho2 = new JTextField();
-		txtAncho2.setBounds(159, 98, 86, 20);
-		desktopPane.add(txtAncho2);
-		txtAncho2.setColumns(10);
+		textAncho2 = new JTextField();
+		textAncho2.setBounds(159, 98, 86, 20);
+		desktopPane.add(textAncho2);
+		textAncho2.setColumns(10);
 		
-		txtAlto2 = new JTextField();
-		txtAlto2.setBounds(159, 123, 86, 20);
-		desktopPane.add(txtAlto2);
-		txtAlto2.setColumns(10);
+		textAlto2 = new JTextField();
+		textAlto2.setBounds(159, 123, 86, 20);
+		desktopPane.add(textAlto2);
+		textAlto2.setColumns(10);
 		
-		txtFondo2 = new JTextField();
-		txtFondo2.setBounds(159, 147, 86, 20);
-		desktopPane.add(txtFondo2);
-		txtFondo2.setColumns(10);
+		textFondo2 = new JTextField();
+		textFondo2.setBounds(159, 147, 86, 20);
+		desktopPane.add(textFondo2);
+		textFondo2.setColumns(10);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
@@ -114,20 +114,20 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 		
 		btnGrabar = new JButton("Grabar");
 		btnGrabar.addActionListener(this);
-		btnGrabar.setBounds(292, 96, 89, 23);
+		btnGrabar.setBounds(292, 74, 89, 23);
 		desktopPane.add(btnGrabar);
 		
-		txtPrecio2.setText(MenuPrincipal.precio0+"");
-		txtAncho2.setText(MenuPrincipal.ancho0+"");
-		txtAlto2.setText(MenuPrincipal.alto0+"");
-		txtFondo2.setText(MenuPrincipal.fondo0+"");
+		textPrecio2.setText(MenuPrincipal.precio0+"");
+		textAncho2.setText(MenuPrincipal.ancho0+"");
+		textAlto2.setText(MenuPrincipal.alto0+"");
+		textFondo2.setText(MenuPrincipal.fondo0+"");
 		}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
-		if (e.getSource() == cboTipoMaleta1) {
+		if (e.getSource() == cboTipoMaleta) {
 			actionPerformedCboTipoMaleta1(e);
 		}
 		if (e.getSource() == btnGrabar) {
@@ -136,40 +136,40 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 	}
 	protected void actionPerformedCboTipoMaleta1(ActionEvent e) {
 		//Lectura del index del comboBox:
-			index=cboTipoMaleta1.getSelectedIndex();
+			index=cboTipoMaleta.getSelectedIndex();
 			
 		//Proceso para impresión de los valores en los textfield según la selección en el comboBox:
 			if(index==0) {
-				txtPrecio2.setText(MenuPrincipal.precio0+"");
-				txtAncho2.setText(MenuPrincipal.ancho0+"");
-				txtAlto2.setText(MenuPrincipal.alto0+"");
-				txtFondo2.setText(MenuPrincipal.fondo0+"");
+				textPrecio2.setText(MenuPrincipal.precio0+"");
+				textAncho2.setText(MenuPrincipal.ancho0+"");
+				textAlto2.setText(MenuPrincipal.alto0+"");
+				textFondo2.setText(MenuPrincipal.fondo0+"");
 				//También se puede realizar de la sgte manera:
 				//textPrecio.setText(Double.toString(VariablesGlobales.precio0));
 			}
 			if(index==1) {
-				txtPrecio2.setText(MenuPrincipal.precio1+"");
-				txtAncho2.setText(MenuPrincipal.ancho1+"");
-				txtAlto2.setText(MenuPrincipal.alto1+"");
-				txtFondo2.setText(MenuPrincipal.fondo1+"");
+				textPrecio2.setText(MenuPrincipal.precio1+"");
+				textAncho2.setText(MenuPrincipal.ancho1+"");
+				textAlto2.setText(MenuPrincipal.alto1+"");
+				textFondo2.setText(MenuPrincipal.fondo1+"");
 			}
 			if(index==2) {
-				txtPrecio2.setText(MenuPrincipal.precio2+"");
-				txtAncho2.setText(MenuPrincipal.ancho2+"");
-				txtAlto2.setText(MenuPrincipal.alto2+"");
-				txtFondo2.setText(MenuPrincipal.fondo2+"");
+				textPrecio2.setText(MenuPrincipal.precio2+"");
+				textAncho2.setText(MenuPrincipal.ancho2+"");
+				textAlto2.setText(MenuPrincipal.alto2+"");
+				textFondo2.setText(MenuPrincipal.fondo2+"");
 			}
 			if(index==3) {
-				txtPrecio2.setText(MenuPrincipal.precio3+"");
-				txtAncho2.setText(MenuPrincipal.ancho3+"");
-				txtAlto2.setText(MenuPrincipal.alto3+"");
-				txtFondo2.setText(MenuPrincipal.fondo3+"");
+				textPrecio2.setText(MenuPrincipal.precio3+"");
+				textAncho2.setText(MenuPrincipal.ancho3+"");
+				textAlto2.setText(MenuPrincipal.alto3+"");
+				textFondo2.setText(MenuPrincipal.fondo3+"");
 			}
 			if(index==4) {
-				txtPrecio2.setText(MenuPrincipal.precio4+"");
-				txtAncho2.setText(MenuPrincipal.ancho4+"");
-				txtAlto2.setText(MenuPrincipal.alto4+"");
-				txtFondo2.setText(MenuPrincipal.fondo4+"");
+				textPrecio2.setText(MenuPrincipal.precio4+"");
+				textAncho2.setText(MenuPrincipal.ancho4+"");
+				textAlto2.setText(MenuPrincipal.alto4+"");
+				textFondo2.setText(MenuPrincipal.fondo4+"");
 			}
 			
 			//También puede realizarse mediante Switch Case utilizando método void con parámetros:
@@ -201,34 +201,34 @@ public class ModificarMaleta extends JInternalFrame implements ActionListener {
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
 		if (index==0) {
-			MenuPrincipal.precio0=Double.parseDouble(txtPrecio2.getText());
-			MenuPrincipal.ancho0=Double.parseDouble(txtAncho2.getText());
-			MenuPrincipal.alto0=Double.parseDouble(txtAlto2.getText());
-			MenuPrincipal.fondo0=Double.parseDouble(txtFondo2.getText());
+			MenuPrincipal.precio0=Double.parseDouble(textPrecio2.getText());
+			MenuPrincipal.ancho0=Double.parseDouble(textAncho2.getText());
+			MenuPrincipal.alto0=Double.parseDouble(textAlto2.getText());
+			MenuPrincipal.fondo0=Double.parseDouble(textFondo2.getText());
 		}
 		if (index==1) {
-			MenuPrincipal.precio1=Double.parseDouble(txtPrecio2.getText());
-			MenuPrincipal.ancho1=Double.parseDouble(txtAncho2.getText());
-			MenuPrincipal.alto1=Double.parseDouble(txtAlto2.getText());
-			MenuPrincipal.fondo1=Double.parseDouble(txtFondo2.getText());
+			MenuPrincipal.precio1=Double.parseDouble(textPrecio2.getText());
+			MenuPrincipal.ancho1=Double.parseDouble(textAncho2.getText());
+			MenuPrincipal.alto1=Double.parseDouble(textAlto2.getText());
+			MenuPrincipal.fondo1=Double.parseDouble(textFondo2.getText());
 		}
 		if (index==2) {
-			MenuPrincipal.precio2=Double.parseDouble(txtPrecio2.getText());
-			MenuPrincipal.ancho2=Double.parseDouble(txtAncho2.getText());
-			MenuPrincipal.alto2=Double.parseDouble(txtAlto2.getText());
-			MenuPrincipal.fondo2=Double.parseDouble(txtFondo2.getText());
+			MenuPrincipal.precio2=Double.parseDouble(textPrecio2.getText());
+			MenuPrincipal.ancho2=Double.parseDouble(textAncho2.getText());
+			MenuPrincipal.alto2=Double.parseDouble(textAlto2.getText());
+			MenuPrincipal.fondo2=Double.parseDouble(textFondo2.getText());
 		}
 		if (index==3) {
-			MenuPrincipal.precio3=Double.parseDouble(txtPrecio2.getText());
-			MenuPrincipal.ancho3=Double.parseDouble(txtAncho2.getText());
-			MenuPrincipal.alto3=Double.parseDouble(txtAlto2.getText());
-			MenuPrincipal.fondo3=Double.parseDouble(txtFondo2.getText());
+			MenuPrincipal.precio3=Double.parseDouble(textPrecio2.getText());
+			MenuPrincipal.ancho3=Double.parseDouble(textAncho2.getText());
+			MenuPrincipal.alto3=Double.parseDouble(textAlto2.getText());
+			MenuPrincipal.fondo3=Double.parseDouble(textFondo2.getText());
 		}
 		if (index==4) {
-			MenuPrincipal.precio4=Double.parseDouble(txtPrecio2.getText());
-			MenuPrincipal.ancho4=Double.parseDouble(txtAncho2.getText());
-			MenuPrincipal.alto4=Double.parseDouble(txtAlto2.getText());
-			MenuPrincipal.fondo4=Double.parseDouble(txtFondo2.getText());
+			MenuPrincipal.precio4=Double.parseDouble(textPrecio2.getText());
+			MenuPrincipal.ancho4=Double.parseDouble(textAncho2.getText());
+			MenuPrincipal.alto4=Double.parseDouble(textAlto2.getText());
+			MenuPrincipal.fondo4=Double.parseDouble(textFondo2.getText());
 			
 			//También puede realizarse mediante Switch Case.
 		}
