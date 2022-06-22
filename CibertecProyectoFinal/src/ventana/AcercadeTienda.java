@@ -59,24 +59,24 @@ public class AcercadeTienda extends JInternalFrame implements ActionListener {
 		
 		lblNewLabel_1 = new JLabel("Autores");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(186, 102, 82, 35);
+		lblNewLabel_1.setBounds(186, 88, 70, 35);
 		desktopPane.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("Anghelo Jhordano Chang Mori");
-		lblNewLabel_2.setBounds(150, 137, 165, 14);
+		lblNewLabel_2 = new JLabel("- Anghelo Chang Mori");
+		lblNewLabel_2.setBounds(167, 134, 133, 14);
 		desktopPane.add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("Ana Carolina Ramos Neira");
-		lblNewLabel_3.setBounds(160, 156, 157, 14);
+		lblNewLabel_3 = new JLabel("- Ana C. Ramos Neira");
+		lblNewLabel_3.setBounds(167, 154, 133, 14);
 		desktopPane.add(lblNewLabel_3);
 		
-		lblNewLabel_4 = new JLabel("Thalo Rudy Torres Z\u00E1rate");
-		lblNewLabel_4.setBounds(160, 174, 165, 14);
+		lblNewLabel_4 = new JLabel("- Thalo R. Torres Z\u00E1rate");
+		lblNewLabel_4.setBounds(167, 174, 133, 14);
 		desktopPane.add(lblNewLabel_4);
 		
 		btnNewButton = new JButton("Cerrar");
 		btnNewButton.addActionListener(this);
-		btnNewButton.setBounds(167, 217, 89, 23);
+		btnNewButton.setBounds(167, 209, 105, 23);
 		desktopPane.add(btnNewButton);
 		
 		separator = new JSeparator();

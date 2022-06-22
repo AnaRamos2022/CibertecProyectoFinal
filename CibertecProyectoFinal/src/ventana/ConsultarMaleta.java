@@ -22,10 +22,10 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private JTextField textPrecio1;
-	private JTextField textAncho1;
-	private JTextField textAlto1;
-	private JTextField textFondo1;
+	private JTextField textPrecio;
+	private JTextField textAncho;
+	private JTextField textAlto;
+	private JTextField textFondo;
 	private JButton btnCerrar;
 	private JDesktopPane desktopPane;
 
@@ -84,39 +84,39 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 		lblNewLabel_4.setBounds(36, 149, 97, 14);
 		desktopPane.add(lblNewLabel_4);
 		
-		textPrecio1 = new JTextField();
-		textPrecio1.setEditable(false);
-		textPrecio1.setBounds(143, 73, 86, 20);
-		desktopPane.add(textPrecio1);
-		textPrecio1.setColumns(10);
+		textPrecio = new JTextField();
+		textPrecio.setEditable(false);
+		textPrecio.setBounds(143, 73, 86, 20);
+		desktopPane.add(textPrecio);
+		textPrecio.setColumns(10);
 		
-		textAncho1 = new JTextField();
-		textAncho1.setEditable(false);
-		textAncho1.setBounds(143, 98, 86, 20);
-		desktopPane.add(textAncho1);
-		textAncho1.setColumns(10);
+		textAncho = new JTextField();
+		textAncho.setEditable(false);
+		textAncho.setBounds(143, 98, 86, 20);
+		desktopPane.add(textAncho);
+		textAncho.setColumns(10);
 		
-		textAlto1 = new JTextField();
-		textAlto1.setEditable(false);
-		textAlto1.setBounds(143, 122, 86, 20);
-		desktopPane.add(textAlto1);
-		textAlto1.setColumns(10);
+		textAlto = new JTextField();
+		textAlto.setEditable(false);
+		textAlto.setBounds(143, 122, 86, 20);
+		desktopPane.add(textAlto);
+		textAlto.setColumns(10);
 		
-		textFondo1 = new JTextField();
-		textFondo1.setEditable(false);
-		textFondo1.setBounds(143, 146, 86, 20);
-		desktopPane.add(textFondo1);
-		textFondo1.setColumns(10);
+		textFondo = new JTextField();
+		textFondo.setEditable(false);
+		textFondo.setBounds(143, 146, 86, 20);
+		desktopPane.add(textFondo);
+		textFondo.setColumns(10);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(262, 46, 89, 23);
 		desktopPane.add(btnCerrar);
 		
-		textPrecio1.setText(MenuPrincipal.precio0+"");
-		textAncho1.setText(MenuPrincipal.ancho0+"");
-		textAlto1.setText(MenuPrincipal.alto0+"");
-		textFondo1.setText(MenuPrincipal.fondo0+"");
+		textPrecio.setText(MenuPrincipal.precio0+"");
+		textAncho.setText(MenuPrincipal.ancho0+"");
+		textAlto.setText(MenuPrincipal.alto0+"");
+		textFondo.setText(MenuPrincipal.fondo0+"");
 
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -133,10 +133,10 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 		
 		//Proceso para impresión de los valores en los textfield según la selección en el comboBox:
 			if(index==0) {
-				textPrecio1.setText(MenuPrincipal.precio0+"");
-				textAncho1.setText(MenuPrincipal.ancho0+"");
-				textAlto1.setText(MenuPrincipal.alto0+"");
-				textFondo1.setText(MenuPrincipal.fondo0+"");
+				textPrecio.setText(MenuPrincipal.precio0+"");
+				textAncho.setText(MenuPrincipal.ancho0+"");
+				textAlto.setText(MenuPrincipal.alto0+"");
+				textFondo.setText(MenuPrincipal.fondo0+"");
 				
 				//Los valores que se imprimirán en los field son valores Double (de las Variables globales), 
 				//por lo tanto se requiere convertirlos a un String para que puedan imprimirse. 
@@ -145,28 +145,28 @@ public class ConsultarMaleta extends JInternalFrame implements ActionListener {
 				
 			}
 			if(index==1) {
-				textPrecio1.setText(MenuPrincipal.precio1+"");
-				textAncho1.setText(MenuPrincipal.ancho1+"");
-				textAlto1.setText(MenuPrincipal.alto1+"");
-				textFondo1.setText(MenuPrincipal.fondo1+"");
+				textPrecio.setText(MenuPrincipal.precio1+"");
+				textAncho.setText(MenuPrincipal.ancho1+"");
+				textAlto.setText(MenuPrincipal.alto1+"");
+				textFondo.setText(MenuPrincipal.fondo1+"");
 			}
 			if(index==2) {
-				textPrecio1.setText(MenuPrincipal.precio2+"");
-				textAncho1.setText(MenuPrincipal.ancho2+"");
-				textAlto1.setText(MenuPrincipal.alto2+"");
-				textFondo1.setText(MenuPrincipal.fondo2+"");
+				textPrecio.setText(MenuPrincipal.precio2+"");
+				textAncho.setText(MenuPrincipal.ancho2+"");
+				textAlto.setText(MenuPrincipal.alto2+"");
+				textFondo.setText(MenuPrincipal.fondo2+"");
 			}
 			if(index==3) {
-				textPrecio1.setText(MenuPrincipal.precio3+"");
-				textAncho1.setText(MenuPrincipal.ancho3+"");
-				textAlto1.setText(MenuPrincipal.alto3+"");
-				textFondo1.setText(MenuPrincipal.fondo3+"");
+				textPrecio.setText(MenuPrincipal.precio3+"");
+				textAncho.setText(MenuPrincipal.ancho3+"");
+				textAlto.setText(MenuPrincipal.alto3+"");
+				textFondo.setText(MenuPrincipal.fondo3+"");
 			}
 			if(index==4) {
-				textPrecio1.setText(MenuPrincipal.precio4+"");
-				textAncho1.setText(MenuPrincipal.ancho4+"");
-				textAlto1.setText(MenuPrincipal.alto4+"");
-				textFondo1.setText(MenuPrincipal.fondo4+"");
+				textPrecio.setText(MenuPrincipal.precio4+"");
+				textAncho.setText(MenuPrincipal.ancho4+"");
+				textAlto.setText(MenuPrincipal.alto4+"");
+				textFondo.setText(MenuPrincipal.fondo4+"");
 			}
 			
 			//También puede realizarse mediante Switch Case utilizando método void con parámetros:
