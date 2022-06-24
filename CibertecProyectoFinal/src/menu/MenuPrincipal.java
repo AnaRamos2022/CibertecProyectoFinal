@@ -73,7 +73,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static double fondo1 = 30.0;
 	// Datos minimos del tercer maleta
 	public static String modelo2 = "Benneton";
-	public static double precio2 = 84.9;
+	public static double precio2 = 159.9;
 	public static double ancho2 = 65.2;
 	public static double alto2 = 31.2;
 	public static double fondo2 = 29.4;
@@ -99,9 +99,6 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static int obsequioCantidad1 = 2;
 	public static int obsequioCantidad2 = 3;
 	public static int obsequioCantidad3 = 4;
-	public static String obsequio1 = "USB";
-	public static String obsequio2 = "Cuaderno";
-	public static String obsequio3 = "Lapicero";
 	// Numero de ventas por modelo
 	public static int contadorVentas = 0;
 	public static int contadorVentas0 = 0;

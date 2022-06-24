@@ -224,24 +224,24 @@ public class Vender extends JInternalFrame implements ActionListener {
 	void cantidadVentasPorModelo() {
 		switch (index) {
 		case (0):
-			MenuPrincipal.contadorVentas0=MenuPrincipal.contadorVentas0+1;
-			MenuPrincipal.cantidadvendida0=MenuPrincipal.cantidadvendida0+cantidad;
+			MenuPrincipal.contadorVentas++;
+			MenuPrincipal.cantidadvendida0++;
 		break;
 		case (1):
-			MenuPrincipal.contadorVentas1=MenuPrincipal.contadorVentas1+1;
-		MenuPrincipal.cantidadvendida1=MenuPrincipal.cantidadvendida1+cantidad;
+			MenuPrincipal.contadorVentas1++;
+		MenuPrincipal.cantidadvendida1++;
 		break;
 		case (2):
-			MenuPrincipal.contadorVentas2=MenuPrincipal.contadorVentas2+1;
-		MenuPrincipal.cantidadvendida2=MenuPrincipal.cantidadvendida2+cantidad;
+			MenuPrincipal.contadorVentas2++;
+		MenuPrincipal.cantidadvendida2++;
 		break;
 		case (3):
-			MenuPrincipal.contadorVentas3=MenuPrincipal.contadorVentas3+1;
-		MenuPrincipal.cantidadvendida3=MenuPrincipal.cantidadvendida3+cantidad;
+			MenuPrincipal.contadorVentas3++;
+		MenuPrincipal.cantidadvendida3++;
 		break;
 		case (4):
-			MenuPrincipal.contadorVentas4=MenuPrincipal.contadorVentas4+1;
-		MenuPrincipal.cantidadvendida4=MenuPrincipal.cantidadvendida4+cantidad;
+			MenuPrincipal.contadorVentas4++;
+		MenuPrincipal.cantidadvendida4++;
 		break;
 		}
 	}

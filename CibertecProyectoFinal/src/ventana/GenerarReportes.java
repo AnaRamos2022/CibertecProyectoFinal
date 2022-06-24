@@ -104,84 +104,105 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 		index=cboTipoReporte.getSelectedIndex();
 		
 		//Cálculo del precio mayor, menor y promedio
-		promedio=(MenuPrincipal.precio0+MenuPrincipal.precio1+MenuPrincipal.precio2+MenuPrincipal.precio3+MenuPrincipal.precio4)/4;
 		mayor=MenuPrincipal.precio0;
-		
 		if (MenuPrincipal.precio1>mayor) {
 			mayor=MenuPrincipal.precio1;
-		} else {
-			menor=MenuPrincipal.precio1;
-		}
+		} 
 		if (MenuPrincipal.precio2>mayor){
 			mayor=MenuPrincipal.precio2;
-		} else {
-			menor=MenuPrincipal.precio2;
-		}
+		} 
 		if (MenuPrincipal.precio3>mayor){
 			mayor=MenuPrincipal.precio3;
-		} else {
-			menor=MenuPrincipal.precio3;
-		}
+		} 
 		if (MenuPrincipal.precio4>mayor){
 			mayor=MenuPrincipal.precio4;
-		} else {
+		} 
+		//Cálculo del precio menor
+		menor=MenuPrincipal.precio0;
+		if (MenuPrincipal.precio1<menor){
+			menor=MenuPrincipal.precio1;
+		}
+		if (MenuPrincipal.precio2<menor){
+			menor=MenuPrincipal.precio2;
+		}
+		if (MenuPrincipal.precio3<menor){
+			menor=MenuPrincipal.precio3;
+		}
+		if (MenuPrincipal.precio4<menor){
 			menor=MenuPrincipal.precio4;
 		}
+		//Cálculo del precio promedio
+		promedio=(MenuPrincipal.precio0+MenuPrincipal.precio1+MenuPrincipal.precio2+MenuPrincipal.precio3+MenuPrincipal.precio4)/5;
+		
 		//Cantidad de modelos que superaron la cantidad óptima
 		if (MenuPrincipal.cantidadvendida0>MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadSuperada=MenuPrincipal.cantidadSuperada+1;
+			MenuPrincipal.cantidadSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida1>MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadSuperada=MenuPrincipal.cantidadSuperada+1;
+			MenuPrincipal.cantidadSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida2>MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadSuperada=MenuPrincipal.cantidadSuperada+1;
+			MenuPrincipal.cantidadSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida3>MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadSuperada=MenuPrincipal.cantidadSuperada+1;
+			MenuPrincipal.cantidadSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida4>MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadSuperada=MenuPrincipal.cantidadSuperada+1;
+			MenuPrincipal.cantidadSuperada++;
 		}
 			
-				
 		//Cantidad de modelos que no superaron la cantidad óptima
 		if (MenuPrincipal.cantidadvendida0<MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadNoSuperada=MenuPrincipal.cantidadNoSuperada+1;
+			MenuPrincipal.cantidadNoSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida1<MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadNoSuperada=MenuPrincipal.cantidadNoSuperada+1;
+			MenuPrincipal.cantidadNoSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida2<MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadNoSuperada=MenuPrincipal.cantidadNoSuperada+1;
+			MenuPrincipal.cantidadNoSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida3<MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadNoSuperada=MenuPrincipal.cantidadNoSuperada+1;
+			MenuPrincipal.cantidadNoSuperada++;
 		}
 		if (MenuPrincipal.cantidadvendida4<MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadNoSuperada=MenuPrincipal.cantidadNoSuperada+1;
+			MenuPrincipal.cantidadNoSuperada++;
 		}
 				
 		//Cantidad de modelos que igualaron la cantidad óptima
 		if (MenuPrincipal.cantidadvendida0==MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadIgualada=MenuPrincipal.cantidadIgualada+1;
+			MenuPrincipal.cantidadIgualada++;
 		}
 		if (MenuPrincipal.cantidadvendida1==MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadIgualada=MenuPrincipal.cantidadIgualada+1;
+			MenuPrincipal.cantidadIgualada++;
 		}
 		if (MenuPrincipal.cantidadvendida2==MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadIgualada=MenuPrincipal.cantidadIgualada+1;
+			MenuPrincipal.cantidadIgualada++;
 		}
 		if (MenuPrincipal.cantidadvendida3==MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadIgualada=MenuPrincipal.cantidadIgualada+1;
+			MenuPrincipal.cantidadIgualada++;
 		}
 		if (MenuPrincipal.cantidadvendida4==MenuPrincipal.cantidadoptima) {
-			MenuPrincipal.cantidadIgualada=MenuPrincipal.cantidadIgualada+1;
+			MenuPrincipal.cantidadIgualada++;
 		}		
 		
 		//Impresión de reportes según selección en el comboBox
 		switch (index) {
 		case 0:
+            ventasPorModelo();
+			break;
+		case 1:
+			razonDePreciosEnRelacionAlPrecioMayor();
+			break;
+		case 2:
+			estadisticasSobreCantidadOptima();
+			break;
+		case 3:
+			estadisticasSobrePrecio();
+			break;
+		}
+	}
+		
+		 void ventasPorModelo(){
 			textArea.setText("VENTAS POR MODELO"+"\n");
 			textArea.append(""+"\n");
 			textArea.append("Modelo		: Aviator"+"\n");
@@ -213,8 +234,9 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 			textArea.append("Cantidad unidades vendidas	: "+MenuPrincipal.cantidadvendida4+"\n");
 			textArea.append("Importe total vendido	: S/. "+ Math.round((MenuPrincipal.cantidadvendida4*MenuPrincipal.precio4)*100.0)/100.0+"\n");
 			textArea.append("Aporte a la cuota diaria	: " + Math.round((((MenuPrincipal.cantidadvendida4*MenuPrincipal.precio4)/MenuPrincipal.cuotadiaria)*100)*100.0)/100.0+"%"+"\n");
-			break;
-		case 1:
+		 }
+		 
+		 void razonDePreciosEnRelacionAlPrecioMayor() {
 			textArea.setText("RAZÓN DE PRECIOS EN RELACIÓN AL PRECIO MAYOR"+"\n");
 			textArea.append(""+"\n");
 			textArea.append("Modelo		: Aviator"+"\n");
@@ -236,24 +258,24 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 			textArea.append("Modelo		: Samsonnite"+"\n");
 			textArea.append("Precio		: "+MenuPrincipal.precio4+"\n");
 			textArea.append("Razón		: "+Math.round((MenuPrincipal.precio4/mayor)*100.0)/100.0+"\n");
-			break;
-		case 2:
+		 }
+		 
+		 void estadisticasSobreCantidadOptima() {
 			textArea.setText("ESTADÍSTICA SOBRE LA CANTIDAD ÓPTIMA"+"\n");
 			textArea.append(""+"\n");
 			textArea.append("Cantidad de modelos que superaron la cantidad óptima	:"+MenuPrincipal.cantidadSuperada+"\n");
 			textArea.append("Cantidad de modelos que no superaron la cantidad óptima	:"+MenuPrincipal.cantidadNoSuperada+"\n");
 			textArea.append("Cantidad de modelos que igualaron la cantidad óptima	:"+MenuPrincipal.cantidadIgualada+"\n");
-			break;
-		case 3:
-			textArea.setText("ESTADÍSTICA SOBRE EL PRECIO"+"\n");
+		 }
+			
+		 void estadisticasSobrePrecio() {
+		textArea.setText("ESTADÍSTICA SOBRE EL PRECIO"+"\n");
 		textArea.append(""+"\n");
 		textArea.append("Precio promedio	: S/."+promedio+"\n");
 		textArea.append("Precio mayor		: S/."+mayor+"\n");
 		textArea.append("Precio menor		: S/."+menor+"\n");
-			break;
 		}
-	}
-	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		 void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
 }
