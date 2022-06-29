@@ -120,7 +120,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static int cantidadoptima = 10;
 	//Cantidad modelos que superaron / no superaron / igualaron cantidad optima
 	public static int cantidadSuperada = 0;
-	public static int cantidadNoSuperada= 0;
+	public static int cantidadNoSuperada = 0;
 	public static int cantidadIgualada = 0;
 	
 	

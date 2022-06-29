@@ -197,6 +197,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 	}
 	
 	void reporteVentas(){
+		textArea.setText("");
 		textArea.append("BOLETA DE VENTA\n");
 		textArea.append(""+"\n");
 		textArea.append("Modelo		: "+cboTipoMaleta.getSelectedItem()+"\n");
@@ -224,24 +225,24 @@ public class Vender extends JInternalFrame implements ActionListener {
 	void cantidadVentasPorModelo() {
 		switch (index) {
 		case (0):
-			MenuPrincipal.contadorVentas++;
-			MenuPrincipal.cantidadvendida0++;
+			MenuPrincipal.contadorVentas0++;
+			MenuPrincipal.cantidadvendida0=MenuPrincipal.cantidadvendida0+cantidad;
 		break;
 		case (1):
 			MenuPrincipal.contadorVentas1++;
-		MenuPrincipal.cantidadvendida1++;
+			MenuPrincipal.cantidadvendida1=MenuPrincipal.cantidadvendida1+cantidad;
 		break;
 		case (2):
 			MenuPrincipal.contadorVentas2++;
-		MenuPrincipal.cantidadvendida2++;
+			MenuPrincipal.cantidadvendida2=MenuPrincipal.cantidadvendida2+cantidad;
 		break;
 		case (3):
 			MenuPrincipal.contadorVentas3++;
-		MenuPrincipal.cantidadvendida3++;
+			MenuPrincipal.cantidadvendida3=MenuPrincipal.cantidadvendida3+cantidad;
 		break;
 		case (4):
 			MenuPrincipal.contadorVentas4++;
-		MenuPrincipal.cantidadvendida4++;
+			MenuPrincipal.cantidadvendida4=MenuPrincipal.cantidadvendida4+cantidad;
 		break;
 		}
 	}

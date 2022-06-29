@@ -135,6 +135,7 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 		promedio=(MenuPrincipal.precio0+MenuPrincipal.precio1+MenuPrincipal.precio2+MenuPrincipal.precio3+MenuPrincipal.precio4)/5;
 		
 		//Cantidad de modelos que superaron la cantidad óptima
+		MenuPrincipal.cantidadSuperada=0;
 		if (MenuPrincipal.cantidadvendida0>MenuPrincipal.cantidadoptima) {
 			MenuPrincipal.cantidadSuperada++;
 		}
@@ -152,6 +153,7 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 		}
 			
 		//Cantidad de modelos que no superaron la cantidad óptima
+		MenuPrincipal.cantidadNoSuperada=0;
 		if (MenuPrincipal.cantidadvendida0<MenuPrincipal.cantidadoptima) {
 			MenuPrincipal.cantidadNoSuperada++;
 		}
@@ -169,6 +171,7 @@ public class GenerarReportes extends JInternalFrame implements ActionListener {
 		}
 				
 		//Cantidad de modelos que igualaron la cantidad óptima
+		MenuPrincipal.cantidadIgualada=0;
 		if (MenuPrincipal.cantidadvendida0==MenuPrincipal.cantidadoptima) {
 			MenuPrincipal.cantidadIgualada++;
 		}
